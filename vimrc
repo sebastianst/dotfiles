@@ -160,3 +160,6 @@ set diffopt+=vertical
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
+
+" airline setup
+let g:airline#extensions#tabline#enabled = 1
