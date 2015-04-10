@@ -79,6 +79,13 @@ set background=dark
 colorscheme solarized
 "highlight NonText guibg=#060606
 "highlight Folded  guibg=#0A0A0A guifg=#9090D0
+if has("gui_running")
+  " airline fonts are installed
+  let g:airline_powerline_fonts = 1
+  if has("gui_gtk2")
+    set guifont=Inconsolata-g\ for\ Powerline\ 12
+  endif
+endif
 
 " Make it obvious where 80 characters is
 set textwidth=80
@@ -154,3 +161,6 @@ set diffopt+=vertical
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
+
+" airline setup
+let g:airline#extensions#tabline#enabled = 1
