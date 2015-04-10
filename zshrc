@@ -20,6 +20,8 @@ export LC_NUMERIC=en_US.utf8
 export EDITOR=emacs
 REPORTTIME=10
 export LESS=' -R '
+# If .env file is present, source it
+[[ -f ~/.env ]] && source ~/.env
 
 # Enabling colors
 autoload -U colors && colors
