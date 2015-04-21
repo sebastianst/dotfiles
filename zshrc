@@ -17,7 +17,7 @@ source ~/.aliases
 export GOPATH=$HOME/go
 PATH="$PATH:$GOPATH/bin"
 export LC_NUMERIC=en_US.utf8
-export EDITOR=emacs
+export EDITOR=vim
 REPORTTIME=10
 export LESS=' -R '
 # If .env file is present, source it
