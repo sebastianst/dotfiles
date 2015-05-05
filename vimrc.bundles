@@ -20,6 +20,7 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'vim-scripts/tComment'
 Plugin 'Yggdroot/indentLine'
@@ -27,6 +28,8 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'chriskempson/base16-vim'
 Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'fatih/vim-go'
+Plugin 'terryma/vim-expand-region'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
