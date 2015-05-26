@@ -14,8 +14,6 @@ setopt auto_cd
 # Set aliases
 source ~/.aliases
 [[ $PATH =~ $HOME/bin ]] || PATH="$HOME/bin:$PATH"
-export GOPATH=$HOME/go
-PATH="$PATH:$GOPATH/bin"
 export LC_NUMERIC=en_US.utf8
 export EDITOR=vim
 REPORTTIME=10
