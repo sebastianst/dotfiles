@@ -98,15 +98,15 @@ key[PageDown]=${terminfo[knp]}
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
 case $TERM in
-    *xterm*|rxvt*|Eterm|aterm|kterm|gnome*)
-	function zle-line-init () {
-	    echoti smkx
-	}
-	function zle-line-finish () {
-	    echoti rmkx
-	}
-	zle -N zle-line-init
-	zle -N zle-line-finish
+  *xterm*|rxvt*|Eterm|aterm|kterm|gnome*)
+    function zle-line-init () {
+    echoti smkx
+  }
+  function zle-line-finish () {
+  echoti rmkx
+}
+zle -N zle-line-init
+zle -N zle-line-finish
 esac
 
 # jump backwards/forwards with Ctrl+left/right
