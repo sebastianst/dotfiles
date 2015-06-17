@@ -1,5 +1,5 @@
-" Leader
-let mapleader = " "
+" make space the leader
+let mapleader = "\<Space>"
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
@@ -167,5 +167,3 @@ endif
 " airline setup
 let g:airline#extensions#tabline#enabled = 1
 
-" make space the leader
-let mapleader = "\<Space>"
