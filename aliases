@@ -65,3 +65,5 @@ alias pacc="$PACMAN -Sc"    # '[c]lean cache'    - delete all not currently inst
 alias pacm="makepkg -fci"  # '[m]ake'           - make package from PKGBUILD file in current directory
 
 alias xselc='xsel --clipboard'
+alias listify='xselc | xargs | tr " " , | tr -d "\n" | xselc'
+alias vimrc='vim ~/.vimrc'
