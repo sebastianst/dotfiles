@@ -67,3 +67,7 @@ alias pacm="makepkg -fci"  # '[m]ake'           - make package from PKGBUILD fil
 alias xselc='xsel --clipboard'
 alias listify='xselc | xargs | tr " " , | tr -d "\n" | xselc'
 alias vimrc='vim ~/.vimrc'
+# yoda aliases
+alias yodacom='picocom -b 115200 /dev/ttyUSB0'
+alias yodassh='ssh root@yoda'
+alias yodawake='wol <mac>'
