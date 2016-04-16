@@ -71,3 +71,6 @@ alias vimrc='vim ~/.vimrc'
 alias yodacom='picocom -b 115200 /dev/ttyUSB0'
 alias yodassh='ssh root@yoda'
 alias yodawake='wol <mac>'
+# cbs aliases
+alias biodata0='ssh stammler@biodata0.compbiol.bio.tu-darmstadt.de'
+alias wake-bioinfo18='wol -i 130.83.63.255 20:cf:30:52:63:17'
