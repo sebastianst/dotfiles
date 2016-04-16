@@ -9,7 +9,6 @@ alias mkdir='mkdir -p -v'
 alias nano='nano -w'
 alias ping='ping -c 5'
 alias ..='cd ..'
-alias xselc='xsel --clipboard'
 
 # new commands
 alias da='date "+%A, %B %d, %Y [%T]"'
@@ -65,4 +64,4 @@ alias pacf="$PACMAN -Ql"    # '[f]iles'          - list all files installed by a
 alias pacc="$PACMAN -Sc"    # '[c]lean cache'    - delete all not currently installed package files
 alias pacm="makepkg -fci"  # '[m]ake'           - make package from PKGBUILD file in current directory
 
-alias aurpload='aurploader -k -a -c ~/.aur.cookie -l ~/.aur.login'
+alias xselc='xsel --clipboard'
