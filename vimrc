@@ -1,5 +1,6 @@
 " make space the leader
 let mapleader = "\<Space>"
+let maplocalleader = "\<Space>"
 
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
