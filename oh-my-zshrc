@@ -80,11 +80,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 #
 # Example aliases
 alias zshconfig="$EDITOR ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias xselc='xsel --clipboard'
-alias listify='xselc | xargs | tr " " , | tr -d "\n" | xselc'
-alias vimrc='vim ~/.vimrc'
-
 # Key bindings
 autoload -U history-search-end
 
@@ -96,6 +91,11 @@ bindkey "\e[B" history-beginning-search-forward-end
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
+fi
+
+# source aliases
+if [[ -f ~/.aliases ]]; then
+  source ~/.aliases
 fi
 
 source $ZSH/oh-my-zsh.sh
