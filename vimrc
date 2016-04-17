@@ -180,3 +180,9 @@ let delimitMate_jump_expansion = 1
 
 " Ctrl-R for find-and-replace of currently visually selected text
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>"
+
+" vimtex configuration
+let g:vimtex_view_method = 'zathura'
+
+" ultisnips configuration
+let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
