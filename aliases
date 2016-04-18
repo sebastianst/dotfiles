@@ -39,21 +39,6 @@ alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
-# pacman aliases (if applicable, replace 'pacman' with your favorite AUR helper)
-PACMAN="yaourt"
-alias pac="$PACMAN -S"      # default action     - install one or more packages
-alias pacu="$PACMAN -Syua"   # '[u]pdate'         - upgrade all packages to their newest version
-alias pacs="$PACMAN -Ss"    # '[s]earch'         - search for a package using one or more keywords
-alias paci="$PACMAN -Si"    # '[i]nfo'           - show information about a package
-alias pacr="$PACMAN -R"     # '[r]emove'         - uninstall one or more packages
-alias pacl="$PACMAN -Sl"    # '[l]ist'           - list all packages of a repository
-alias pacll="$PACMAN -Qqm"  # '[l]ist [l]ocal'   - list all packages which were locally installed (e.g. AUR packages)
-alias paclo="$PACMAN -Qdt"  # '[l]ist [o]rphans' - list all packages which are orphaned
-alias paco="$PACMAN -Qo"    # '[o]wner'          - determine which package owns a given file
-alias pacf="$PACMAN -Ql"    # '[f]iles'          - list all files installed by a given package
-alias pacc="$PACMAN -Sc"    # '[c]lean cache'    - delete all not currently installed package files
-alias pacm="makepkg -fci"  # '[m]ake'           - make package from PKGBUILD file in current directory
-
 alias xselc='xsel --clipboard'
 alias listify='xselc | xargs | tr " " , | tr -d "\n" | xselc'
 alias vimrc='vim ~/.vimrc'
