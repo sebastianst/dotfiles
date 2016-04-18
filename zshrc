@@ -8,3 +8,9 @@ if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
 fi
 
 [[ -f ~/.aliases ]] && source ~/.aliases
+
+# Enable <C>-<S>-t open new termite in current directory
+if [[ $TERM == xterm-termite  ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_osc7
+fi
