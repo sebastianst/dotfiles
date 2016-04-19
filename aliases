@@ -42,10 +42,6 @@ alias chgrp='chgrp --preserve-root'
 alias xselc='xsel --clipboard'
 alias listify='xselc | xargs | tr " " , | tr -d "\n" | xselc'
 alias vimrc='vim ~/.vimrc'
-# yoda aliases
-alias yodacom='picocom -b 115200 /dev/ttyUSB0'
-alias yodassh='ssh root@yoda'
-alias yodawake='wol <mac>'
-# cbs aliases
+[[ -s ~/.aliases.local ]] && source ~/.aliases.local
+# cbs aliases (global)
 alias biodata0='ssh stammler@biodata0.compbiol.bio.tu-darmstadt.de'
-alias wake-bioinfo18='wol -i 130.83.63.255 20:cf:30:52:63:17'
