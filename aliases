@@ -46,3 +46,9 @@ alias i3c='vim ~/.config/i3/config'
 [[ -s ~/.aliases.local ]] && source ~/.aliases.local
 # cbs aliases (global)
 alias biodata0='ssh stammler@biodata0.compbiol.bio.tu-darmstadt.de'
+
+# functions that feel like aliases
+# cd and list
+cl() {
+  cd $1; l
+}
