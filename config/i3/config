@@ -171,13 +171,14 @@ bindsym XF86Tools [con_mark="music"] scratchpad show
 for_window [class="Spotify"] mark "music", move scratchpad
 
 # Power mode
-set $power_mode "(s)leep (h)ibernate (p)owersave (r)estart shut(d)own"
+set $power_mode "(s)leep (h)ibernate (p)owersave (r)estart shut(d)own (e)xit"
 mode $power_mode {
     bindsym s exec sudo pm-suspend; mode "default"
     bindsym h exec sudo pm-hibernate; mode "default"
     bindsym p exec sudo pm-powersave; mode "default"
     bindsym d exec sudo 'shutdown -h now'; mode "default"
     bindsym r exec sudo 'shutdown -r now'; mode "default"
+    bindsym e exit
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
