@@ -8,6 +8,15 @@
 
 # use pacman module only on arch systems...
 [[ -f /usr/bin/pacman ]] && zmodules=(pacman)
+
+# Enable ssh module only for given hosts
+# Unfortunately, cannot use .zim.pre, because home dir is shared in cbs...
+if [[ $HOST == ("bioinfo6"|"xpsepp") ]]; then
+  zmodules+=(ssh)
+  # Load these ssh identities with the ssh module
+  zssh_ids=(id_rsa)
+fi
+
 # Select what modules you would like enabled.
 # First and second line were included in template
 # The second line of modules may depend on options set by modules in the first line.
@@ -53,15 +62,6 @@ zcompdump_file=".zcompdump-${HOST}"
 # For (u)rxvt and gnome-terminal users,
 # removing the 'cursor' highlighter will fix the disappearing cursor problem
 zhighlighters=(main brackets cursor)
-
-
-#
-# SSH
-#
-
-# Load these ssh identities with the ssh module
-zssh_ids=(id_rsa)
-
 
 #
 # Pacman
