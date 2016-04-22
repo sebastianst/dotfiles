@@ -3,8 +3,8 @@
 alias diff='colordiff'              # requires colordiff package
 alias grep='grep --color=auto'
 alias more='less'
-alias df='df -h'
-alias du='du -c -h'
+alias df='df -hk'
+alias du='du -c -hk'
 alias mkdir='mkdir -p -v'
 alias nano='nano -w'
 alias ping='ping -c 5'
@@ -26,7 +26,6 @@ if [ $UID -ne 0 ]; then
     alias root='sudo su'
     alias reboot='sudo reboot'
     alias halt='sudo halt'
-    alias update='sudo pacman -Su'
     alias netcfg='sudo netcfg2'
 fi
 
@@ -50,5 +49,5 @@ alias biodata0='ssh stammler@biodata0.compbiol.bio.tu-darmstadt.de'
 # functions that feel like aliases
 # cd and list
 cl() {
-  cd $1; l
+  cd ${1}; l
 }
