@@ -10,7 +10,7 @@ fi
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 # Enable <C>-<S>-t open new termite in current directory
-if [[ $TERM == xterm-termite  ]]; then
+if [[ $TERM == xterm-termite && -f /etc/profile.d/vte.sh ]]; then
   . /etc/profile.d/vte.sh
   __vte_osc7
 fi
