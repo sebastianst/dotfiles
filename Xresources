@@ -15,3 +15,5 @@ URxvt.secondaryScroll: 0
 ! make it pretty
 *font: xft:Inconsolata-g-Powerline:pixelsize=12:antialias=true:hinting=true
 !*letterSpace: -1
+
+#include ".config/Xresources/Solarized.light"
