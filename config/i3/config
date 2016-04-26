@@ -29,8 +29,10 @@ font pango:monospace 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Define default terminal
+set $app_terminal termite
 # start a terminal
-bindsym $mod+Return exec termite #i3-sensible-terminal
+bindsym $mod+Return exec $app_terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -71,6 +73,10 @@ bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
+
+# Open split terminals
+bindsym $mod+Shift+b split h, exec $app_terminal
+bindsym $mod+Shift+v split v, exec $app_terminal
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
