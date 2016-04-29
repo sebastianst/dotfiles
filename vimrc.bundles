@@ -35,6 +35,7 @@ Plugin 'terryma/vim-expand-region'
 Plugin 'Shougo/unite.vim'
 Plugin 'lervag/vimtex'
 Plugin 'SirVer/ultisnips'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
