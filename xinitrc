@@ -1,5 +1,5 @@
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-setxkbmap -layout us,de -option grp:menu_toggle -option caps:swapescape
+setxkbmap -layout us,de -option grp:menu_toggle -option caps:swapescape -option terminate:ctrl_alt_bksp
 #pulseaudio
 compton -b
 unclutter &
