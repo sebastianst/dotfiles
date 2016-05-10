@@ -214,3 +214,4 @@ bar {
 exec clipit -n -d
 exec spotify
 exec --no-startup-id sh ~/.fehbg
+exec --no-startup-id redshift-gtk
