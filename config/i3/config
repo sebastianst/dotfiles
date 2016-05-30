@@ -212,6 +212,7 @@ bar {
 
 # Startup
 exec clipit -n -d
+exec dunst
 exec thunderbird
 exec spotify
 exec --no-startup-id sh ~/.fehbg
