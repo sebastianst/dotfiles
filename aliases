@@ -18,6 +18,9 @@ alias openports='netstat --all --numeric --programs --inet --inet6'
 alias pg='ps -Af | grep $1'         # requires an argument (note: /usr/bin/pg is installed by the util-linux package; maybe a different alias name should be used)
 alias gpg-reload-agent='echo RELOADAGENT | gpg-connect-agent'
 
+# lazyness
+alias xopen='xdg-open'
+
 # privileged access
 if [ $UID -ne 0 ]; then
     alias sudo='sudo '
