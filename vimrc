@@ -191,3 +191,12 @@ let g:vimtex_view_method = 'zathura'
 
 " ultisnips configuration
 let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
+
+" Spell checker
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd BufRead,BufNewFile README setlocal spell
+autocmd FileType gitcommit setlocal spell
+set complete+=kspell
+nmap <silent> <leader>ss :set spell!<CR>
+nmap <silent> <leader>sz 1z=<CR>
+
