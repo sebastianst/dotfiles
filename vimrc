@@ -129,6 +129,9 @@ map <Leader>ct :!ctags -R .<CR>
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
+" buffer shortcuts
+nnoremap ZW :bwipeout<CR>
+
 " vimrc mappings
 nnoremap <leader>vm :e ~/.vimrc<CR>
 nnoremap <leader>vr :so $MYVIMRC<CR>
