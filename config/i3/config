@@ -172,6 +172,9 @@ bindsym $mod+XF86AudioLowerVolume exec playerctl previous
 bindsym XF86Tools [con_mark="music"] scratchpad show
 for_window [class="Spotify"] mark "music", move scratchpad
 
+# Other window defaults
+for_window [title="Tea Timer"] floating enable, move position center
+
 # Power mode
 set $power_mode "(s)leep (h)ibernate (p)owersave (r)estart shut(d)own (e)xit"
 mode $power_mode {
@@ -188,7 +191,7 @@ mode $power_mode {
 bindsym $mod+n mode $power_mode
 
 # Launcher mode
-set $launcher_mode "( )firefox (⬆ )chromium (f)ilemanager p(a)vucontrol (l)ibreoffice (p)idgin (c)alculator"
+set $launcher_mode "( )firefox (⬆ )chromium (f)ilemanager p(a)vucontrol (l)ibreoffice (p)idgin (c)alculator (t)imer"
 mode $launcher_mode {
     bindsym space exec firefox, mode "default"
     bindsym Shift+space exec chromium, mode "default"
@@ -197,6 +200,7 @@ mode $launcher_mode {
     bindsym l exec libreoffice, mode "default"
     bindsym p exec pidgin, mode "default"
     bindsym c exec gnome-calculator, mode "default"
+    bindsym t exec ~/bin/teatimer.py -m -d, mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
