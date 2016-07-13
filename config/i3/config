@@ -215,6 +215,7 @@ bar {
 }
 
 # Startup
+exec pasystray
 exec clipit -n -d
 exec dunst
 exec thunderbird
