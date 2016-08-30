@@ -131,9 +131,10 @@ nnoremap <leader><leader> <c-^>
 
 " buffer shortcuts
 nnoremap ZW :bwipeout<CR>
+nnoremap ZS :write<CR>
 
 " vimrc mappings
-nnoremap <leader>vm :e ~/.vimrc<CR>
+nnoremap <leader>vm :e $MYVIMRC<CR>
 nnoremap <leader>vr :so $MYVIMRC<CR>
 
 " Get off my lawn
