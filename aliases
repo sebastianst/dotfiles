@@ -20,6 +20,7 @@ alias gpg-reload-agent='echo RELOADAGENT | gpg-connect-agent'
 
 # lazyness
 alias xopen='xdg-open'
+alias zstar='tar -I zstd' # Until zstd is added to tar compression options
 
 # privileged access
 if [ $UID -ne 0 ]; then
