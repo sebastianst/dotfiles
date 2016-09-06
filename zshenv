@@ -8,5 +8,6 @@ _scratch_home="/scratch${HOME}"
 if [ -d ${_scratch_home} ]; then
   export XDG_CACHE_HOME="${_scratch_home}/.cache"
   export XDG_DATA_HOME="${_scratch_home}/.local/share"
+  export XAUTHORITY="${_scratch_home}/.Xauthority"
 fi
 
