@@ -1,2 +1,2 @@
-
-LANG=en_US.UTF-8
+# Use host-specific history file at CBS
+export HISTFILE=~/.zhistory.d/$HOST
