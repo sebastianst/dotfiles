@@ -1,4 +1,2 @@
-export GOPATH="$HOME/local/go"
-PATH="~/bin:$GOPATH/bin:$PATH"
 
 LANG=en_US.UTF-8
