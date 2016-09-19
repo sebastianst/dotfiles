@@ -1,0 +1,2 @@
+firejail --profile=~/.config/firejail/firefox-privat.profile /usr/bin/firefox --no-remote $@
+
