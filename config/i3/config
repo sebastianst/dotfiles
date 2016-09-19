@@ -173,6 +173,8 @@ bindsym $mod+XF86AudioLowerVolume exec playerctl previous
 # Spotify
 #bindsym XF86Tools exec ~/.i3/i3-run-or-raise/bin/i3-run-or-raise -c Spotify -w 9 spotify
 bindsym XF86Tools [con_mark="music"] scratchpad show
+# For when I don't have those fancy keys
+bindsym $mod+Shift+m [con_mark="music"] scratchpad show
 for_window [class="Spotify"] mark "music", move scratchpad
 
 # Other window defaults
