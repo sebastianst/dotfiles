@@ -184,10 +184,10 @@ for_window [title="Tea Timer"] floating enable, move position center
 set $power_mode "(s)leep (h)ibernate (p)owersave (r)estart shut(d)own (e)xit"
 mode $power_mode {
     bindsym s exec i3lock -c 003366; exec systemctl suspend; mode "default"
-    bindsym h exec sudo pm-hibernate; mode "default"
-    bindsym p exec sudo pm-powersave; mode "default"
-    bindsym d exec poweroff; mode "default"
-    bindsym r exec reboot; mode "default"
+    bindsym h exec systemctl hibernate; mode "default"
+    bindsym p exec notify-send "powersave not configured yet..."; mode "default"
+    bindsym d exec systemctl poweroff; mode "default"
+    bindsym r exec systemctl reboot; mode "default"
     bindsym e exit
 
     bindsym Return mode "default"
