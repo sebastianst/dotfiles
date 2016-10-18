@@ -191,6 +191,7 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>"
 " concealing configuration
 set concealcursor=c
 "set conceallevel=2
+let g:tex_conceal = ""
 
 " vimtex configuration
 let g:vimtex_view_method = 'zathura'
