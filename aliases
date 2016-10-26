@@ -47,8 +47,6 @@ alias listify='xselc | xargs | tr " " , | tr -d "\n" | xselc'
 alias vimrc='vim ~/.vimrc'
 alias i3c='vim ~/.config/i3/config'
 
-alias pacI="pac -S"
-
 [[ -s ~/.aliases.local ]] && source ~/.aliases.local
 # cbs aliases (global)
 alias biodata0='ssh stammler@biodata0.compbiol.bio.tu-darmstadt.de'
