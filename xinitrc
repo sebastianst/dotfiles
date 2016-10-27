@@ -4,5 +4,5 @@ setxkbmap -layout us,de -option grp:menu_toggle -option caps:swapescape -option 
 #pulseaudio
 compton -b
 unclutter &
-udiskie -as &
+udiskie -As &
 exec i3
