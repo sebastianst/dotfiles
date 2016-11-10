@@ -207,3 +207,6 @@ set complete+=kspell
 nmap <silent> <leader>ss :set spell!<CR>
 nmap <silent> <leader>sz 1z=<CR>
 
+" tagbar
+nmap <F8> :TagbarToggle<CR>
+
