@@ -64,19 +64,14 @@ set expandtab
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
-" Use The Platinum Seach https://github.com/monochromegane/the_platinum_searcher
-if executable('pt')
-  " Use pt over Grep
-  set grepprg=pt\ --nogroup\ --nocolor
+" Use ripgrep
+if executable('rg')
+  " Use rg over Grep
+  set grepprg=rg\ --vimgrep
 
-  " Use pt in CtrlP for listing files. Lightning fast and respects .gitignore
-  " let g:ctrlp_user_command = 'pt %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  " let g:ctrlp_use_caching = 0
-
-  let g:unite_source_grep_command = 'pt'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+  " Let unite use rg
+  let g:unite_source_grep_command = 'rg'
+  let g:unite_source_grep_default_opts = '--vimgrep'
   let g:unite_source_grep_recursive_opt = ''
   let g:unite_source_grep_encoding = 'utf-8'
 endif
