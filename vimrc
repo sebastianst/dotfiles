@@ -24,6 +24,8 @@ endif
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
+
+" Plugins
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
@@ -134,6 +136,7 @@ nnoremap ZS :write<CR>
 
 " vimrc mappings
 nnoremap <leader>vm :e $MYVIMRC<CR>
+nnoremap <leader>vp :e ~/.vimrc.bundles<CR>
 nnoremap <leader>vr :so $MYVIMRC<CR>
 
 " Get off my lawn
