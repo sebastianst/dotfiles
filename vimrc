@@ -75,6 +75,10 @@ if executable('rg')
   " Use rg over Grep
   set grepprg=rg\ --vimgrep
 
+  " fzf.vim
+  " from https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2#.tj0bz9a4o
+  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+
   " Let unite use rg
   let g:unite_source_grep_command = 'rg'
   let g:unite_source_grep_default_opts = '--vimgrep'
