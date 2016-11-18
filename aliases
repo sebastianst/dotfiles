@@ -44,8 +44,10 @@ alias chgrp='chgrp --preserve-root'
 
 alias xselc='xsel --clipboard'
 alias listify='xselc | xargs | tr " " , | tr -d "\n" | xselc'
+# quickly edit config files
 alias vimrc='vim ~/.vimrc'
 alias i3c='vim ~/.config/i3/config'
+alias e.='(cd ~/.dotfiles; vim $(git ls-tree -r master --name-only | fzf))'
 
 # Arch aliases
 alias makesrcinfo='rm .SRCINFO; makepkg --printsrcinfo > .SRCINFO'
