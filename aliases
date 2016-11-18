@@ -71,3 +71,7 @@ cl() {
 stmux () {
   /usr/bin/ssh -t $@ "tmux attach || tmux new";
 }
+# convert svg to pdf
+svg2pdf () {
+  svg-convert -f pdf -o ${2} ${1}
+}
