@@ -11,7 +11,7 @@ if [[ "$#" == 0 ]]; then
 fi
 
 declare -a output
-config_file="~/.config/screen-setup.conf"
+config_file="~/.config/screen-config.conf"
 
 setup_no_config() {
   i=0
