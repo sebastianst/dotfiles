@@ -1,0 +1,52 @@
+#!/bin/sh
+
+# xrandr helper to quickly enable and disable monitors
+# abstracts monitors with numbers, which are configured in
+# ~/.config/screen-setup.conf
+# GPLv3 released. Sebastian Stammler.
+
+if [[ "$#" == 0 ]]; then
+  echo "Usage: $0 <first output#> <second output#> ..."
+  exit 1
+fi
+
+declare -a output
+config_file="~/.config/screen-setup.conf"
+
+setup_no_config() {
+  i=0
+  for o in $(xrandr | sed -nre 's/([A-Z0-9-]*) connected.*/\1/p'); do
+    output[$((i++))]=${o}
+  done
+}
+
+# It is assumed that the config file contains all connected monitors
+setup_config() {
+  source $config_file
+}
+
+[[ -f $config_file ]] && setup_config || setup_no_config
+
+if [[ ${#output[@]} -lt 1 ]]; then
+  echo "No outputs configured and auto configuration failed."
+  exit 1
+fi
+
+# main part
+out=${output[$1]}
+output[$1]=""
+cmd="xrandr --output ${out} --auto"
+shift
+while (($#)); do
+  out=${output[$1]}
+  output[$1]=""
+  cmd="$cmd --left-of ${out} --output ${out} --auto"
+  shift
+done
+# all set outputs in $output array have been reset to the empty string
+# switch remaining off
+for o in "${output[@]}"; do
+  [[ ${o} ]] && cmd="$cmd --output ${o} --off"
+done
+
+eval "${cmd}"
