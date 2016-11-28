@@ -187,7 +187,7 @@ let delimitMate_expand_space = 1
 let delimitMate_jump_expansion = 1
 
 " Ctrl-R for find-and-replace of currently visually selected text
-vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>"
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " concealing configuration
 set concealcursor=c
