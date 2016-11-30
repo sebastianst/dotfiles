@@ -40,6 +40,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'majutsushi/tagbar'
 Plugin 'junegunn/fzf.vim'
+Plugin 'Valloric/YouCompleteMe'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
