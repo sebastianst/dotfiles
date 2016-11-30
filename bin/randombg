@@ -1,0 +1,5 @@
+#!/bin/sh
+res=$(xrandr|sed -rne '1s/.*current ([0-9]+) x ([0-9]+).*/\1x\2/p')
+wp_dir="${HOME}/Wallpapers/${res}"
+wp="$wp_dir"/$(ls -1 "${wp_dir}" | shuf | head -n1)
+feh --no-xinerama --image-bg black --bg-center "${wp}"
