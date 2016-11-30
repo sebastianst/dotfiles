@@ -14,7 +14,7 @@
 if [[ $HOST == ("bioinfo6"|"xpsepp") ]]; then
   zmodules+=(ssh)
   # Load these ssh identities with the ssh module
-  zssh_ids=(id_rsa)
+  zssh_ids=(id_ed25519)
 fi
 
 # Select what modules you would like enabled.
