@@ -2,7 +2,7 @@
 
 # xrandr helper to quickly enable and disable monitors
 # abstracts monitors with numbers, which are configured in
-# ~/.config/screen-setup.conf
+# ~/.config/screen-config.conf
 # GPLv3 released. Sebastian Stammler.
 
 if [[ "$#" == 0 ]]; then
