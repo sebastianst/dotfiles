@@ -227,12 +227,13 @@ mode $launcher_mode {
 bindsym $mod+space mode $launcher_mode
 
 # Configuration mode
+set $bgcmd "sh ~/bin/randombg"
 set $config_mode "Screen layouts: (1) primary (2) secondary (3) both 1+2 (4) both 2+1"
 mode $config_mode {
-    bindsym 1 exec --no-startup-id ~/bin/screen-config 0, mode "default"
-    bindsym 2 exec --no-startup-id ~/bin/screen-config 1, mode "default"
-    bindsym 3 exec --no-startup-id ~/bin/screen-config 0 1, mode "default"
-    bindsym 4 exec --no-startup-id ~/bin/screen-config 1 0, mode "default"
+    bindsym 1 exec --no-startup-id ~/bin/screen-config 0, exec $bgcmd, mode "default"
+    bindsym 2 exec --no-startup-id ~/bin/screen-config 1, exec $bgcmd, mode "default"
+    bindsym 3 exec --no-startup-id ~/bin/screen-config 0 1, exec $bgcmd, mode "default"
+    bindsym 4 exec --no-startup-id ~/bin/screen-config 1 0, exec $bgcmd, mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -252,5 +253,5 @@ exec clipit -n -d
 exec dunst
 exec thunderbird
 exec spotify
-exec --no-startup-id sh ~/.fehbg
+exec --no-startup-id $bgcmd
 exec --no-startup-id redshift-gtk
