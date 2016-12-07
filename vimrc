@@ -189,9 +189,9 @@ let delimitMate_jump_expansion = 1
 " Ctrl-R for find-and-replace of currently visually selected text
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 " Ctrl-C to copy visually selected text to system clipboard
-vmap <C-c> "+y
+vnoremap <C-c> "+y
 " Ctrl-V to paste from system clipboard in insert mode
-imap <C-v> <C-r>+
+inoremap <C-v> <C-r>+
 
 " concealing configuration
 set concealcursor=c
