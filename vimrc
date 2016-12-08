@@ -2,6 +2,9 @@
 let mapleader = "\<Space>"
 let maplocalleader = "\<Space>"
 
+" Changes of default mappings
+map Y y$
+
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
