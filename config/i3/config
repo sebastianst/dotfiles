@@ -198,14 +198,16 @@ for_window [class="Spotify"] mark "music", move scratchpad
 for_window [title="Tea Timer"] floating enable, move position center
 
 # Power mode
-set $power_mode "(s)leep (h)ibernate (p)owersave (r)estart shut(d)own (e)xit (l)ock"
+set $power_mode "(s)leep (h)ibernate (p)owersave (r)estart shut(d)own (e)xit (l)ock screen-(o)ff"
 mode $power_mode {
+    set $screen_off "xset dpms force off"
     bindsym s exec i3lock -c 003366; exec systemctl suspend; mode "default"
     bindsym h exec systemctl hibernate; mode "default"
     bindsym p exec notify-send "powersave not configured yet..."; mode "default"
     bindsym d exec systemctl poweroff; mode "default"
     bindsym r exec systemctl reboot; mode "default"
-    bindsym l exec i3lock -c 003366; mode "default"
+    bindsym l exec $screen_off; exec i3lock -c 003366; mode "default"
+    bindsym o exec $screen_off; mode "default"
     bindsym e exit
 
     bindsym Return mode "default"
