@@ -215,6 +215,13 @@ set complete+=kspell
 nmap <silent> <leader>ss :set spell!<CR>
 nmap <silent> <leader>sz 1z=<CR>
 
+" vim for writing
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
+
 " tagbar
 nmap <F8> :TagbarToggle<CR>
 
