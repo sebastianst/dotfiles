@@ -218,3 +218,6 @@ nmap <silent> <leader>sz 1z=<CR>
 " tagbar
 nmap <F8> :TagbarToggle<CR>
 
+" vim project rcs
+set exrc
+set secure
