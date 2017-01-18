@@ -8,6 +8,13 @@ username = Sebastian Stammler <stammler@cbs.tu-darmstadt.de>
 # uncomment these lines to enable some popular extensions
 # (see "hg help extensions" for more info)
 #
-# pager =
-# progress =
-# color =
+pager =
+color =
+gpg =
+strip =
+
+[pager]
+pager = LESS='eiFRXQ' less
+quiet = True
+attend = outgoing,incoming,diff,status,log,qdiff,blame,annotate,pdiff,glog
+
