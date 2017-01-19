@@ -226,6 +226,9 @@ augroup pencil
   autocmd FileType text         call pencil#init()
 augroup END
 
+" Pandoc plugin
+let g:pandoc#formatting#mode = 'ha'
+
 " tagbar
 nmap <F8> :TagbarToggle<CR>
 
