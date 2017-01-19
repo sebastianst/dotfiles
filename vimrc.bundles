@@ -44,6 +44,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'reedes/vim-pencil'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'lyokha/vim-xkbswitch'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local

@@ -178,6 +178,10 @@ let g:syntastic_auto_loc_list = 0
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
 set spellfile=$HOME/.vim-spell-en.utf-8.add
 
+" xkb-switch plugin
+let g:XkbSwitchNLayout = 'us'
+let g:XkbSwitchILayout = 'de'
+
 " Always use vertical diffs
 set diffopt+=vertical
 
