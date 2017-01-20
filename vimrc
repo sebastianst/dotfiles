@@ -227,7 +227,8 @@ augroup pencil
 augroup END
 
 " Pandoc plugin
-let g:pandoc#formatting#mode = 'ha'
+let g:pandoc#formatting#mode = 'hA'
+let g:pandoc#formatting#extra_equalprg = '--reference-links --reference-location=block --atx-headers'
 
 " tagbar
 nmap <F8> :TagbarToggle<CR>
