@@ -15,3 +15,11 @@ if [[ $TERM == xterm-termite && -f /etc/profile.d/vte.sh ]]; then
   . /etc/profile.d/vte.sh
   __vte_osc7
 fi
+
+# bindings
+bindkey '^Z' push-input
+bindkey '^N' up-history
+bindkey '^P' down-history
+bindkey '^R' history-incremental-search-backward
+bindkey -M isearch '^N' vi-repeat-search
+bindkey -M isearch '^P' vi-rev-repeat-search
