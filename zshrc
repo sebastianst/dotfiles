@@ -16,6 +16,20 @@ if [[ $TERM == xterm-termite && -f /etc/profile.d/vte.sh ]]; then
   __vte_osc7
 fi
 
+# vi mode status
+if [[ -f /usr/share/zsh/functions/Misc/add-zle-hook-widget ]]; then
+  source /usr/share/zsh/functions/Misc/add-zle-hook-widget
+
+  function vim-mode-prompt {
+    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$EPS1"
+    zle reset-prompt
+  }
+
+  add-zle-hook-widget line-init vim-mode-prompt
+  add-zle-hook-widget keymap-select vim-mode-prompt
+fi
+
 # bindings
 bindkey '^Z' push-input
 bindkey '^N' up-history
