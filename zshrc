@@ -17,18 +17,16 @@ if [[ $TERM == xterm-termite && -f /etc/profile.d/vte.sh ]]; then
 fi
 
 # vi mode status
-if [[ -f /usr/share/zsh/functions/Misc/add-zle-hook-widget ]]; then
-  source /usr/share/zsh/functions/Misc/add-zle-hook-widget
+# Add hooks instead of overwriting zle-line-init etc.
+function vim-mode-prompt {
+  VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+  RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$EPS1"
+  zle reset-prompt
+}
 
-  function vim-mode-prompt {
-    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
-    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$EPS1"
-    zle reset-prompt
-  }
-
-  add-zle-hook-widget line-init vim-mode-prompt
-  add-zle-hook-widget keymap-select vim-mode-prompt
-fi
+autoload -Uz add-zle-hook-widget
+add-zle-hook-widget line-init vim-mode-prompt
+add-zle-hook-widget keymap-select vim-mode-prompt
 
 # default WORDCHARS include too many chars for my taste
 WORDCHARS='*?_-.~$%^'
