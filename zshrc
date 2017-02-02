@@ -39,3 +39,7 @@ bindkey '^P' down-history
 bindkey '^R' history-incremental-search-backward
 bindkey -M isearch '^N' vi-repeat-search
 bindkey -M isearch '^P' vi-rev-repeat-search
+# sane vi-insert mode behaviour - use emacs widgets
+bindkey -M viins '^H' backward-delete-char
+bindkey -M viins '^W' backward-kill-word
+bindkey -M viins '^U' kill-line
