@@ -30,6 +30,8 @@ if [[ -f /usr/share/zsh/functions/Misc/add-zle-hook-widget ]]; then
   add-zle-hook-widget keymap-select vim-mode-prompt
 fi
 
+# default WORDCHARS include too many chars for my taste
+WORDCHARS='*?_-.~$%^'
 # bindings
 bindkey '^Z' push-input
 bindkey '^N' up-history
