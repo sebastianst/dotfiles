@@ -1,3 +1,4 @@
+umask 027
 export VISUAL=vim
 export EDITOR=$VISUAL
 export GOPATH=$HOME/go
