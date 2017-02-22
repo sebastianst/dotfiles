@@ -244,6 +244,9 @@ let g:pandoc#formatting#extra_equalprg = '--reference-links --reference-location
 " tagbar
 nmap <F8> :TagbarToggle<CR>
 
+" magit
+let g:magit_default_fold_level=2 " Unfold all
+
 " vim project rcs
 set exrc
 set secure
