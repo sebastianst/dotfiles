@@ -1,17 +1,16 @@
 umask 027
 export VISUAL=vim
 export EDITOR=$VISUAL
-export GOPATH=$HOME/go
 
-# Use local/scratch XDG Paths, if present
-_scratch_home="/scratch${HOME}"
-if [ -d ${_scratch_home} ]; then
-  export XDG_CACHE_HOME="${_scratch_home}/.cache"
-  export XDG_DATA_HOME="${_scratch_home}/.local/share"
-  export XAUTHORITY="${_scratch_home}/.Xauthority"
-  # Set local gopath if possible
-  export GOPATH="${_scratch_home}/go"
-fi
+# Use local/scratch XDG Paths, if present and flagged with .useme file
+_home_prefix="/scratch${HOME}"
+[ -f ${_home_prefix}/.useme ] || _home_prefix=${HOME} # default to ~
+
+export XDG_CACHE_HOME="${_home_prefix}/.cache"
+export XDG_DATA_HOME="${_home_prefix}/.local/share"
+export XAUTHORITY="${_home_prefix}/.Xauthority"
+export GOPATH="${_home_prefix}/go"
+export GNUPGHOME="${_home_prefix}/.gnupg"
 
 PATH="$PATH:$GOPATH/bin"
 
