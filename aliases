@@ -73,7 +73,7 @@ stmux () {
 }
 # convert svg to pdf
 svg2pdf () {
-  svg-convert -f pdf -o ${2} ${1}
+  rsvg-convert -f pdf -o ${2} ${1}
 }
 
 mount/ () {
