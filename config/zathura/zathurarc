@@ -4,3 +4,4 @@ set window-title-page true
 set scroll-page-aware true
 set selection-clipboard clipboard
 set show-recent 25
+map <A-s> toggle_statusbar
