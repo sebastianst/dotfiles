@@ -243,6 +243,8 @@ let g:pandoc#formatting#extra_equalprg = '--reference-links --reference-location
 
 " tagbar
 nmap <F8> :TagbarToggle<CR>
+" nerdtree
+nmap <F9> :NERDTreeToggle<CR>
 
 " magit
 let g:magit_default_fold_level=2 " Unfold all
