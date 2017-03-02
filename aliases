@@ -52,6 +52,14 @@ alias e.='(cd ~/.dotfiles; vim $(git ls-tree -r master --name-only | fzf))'
 # Arch aliases
 alias makesrcinfo='rm .SRCINFO; makepkg --printsrcinfo > .SRCINFO'
 
+# mlocate aliases
+alias hlocate='locate -i -d ~/.mlocate.db'
+
+olocate () {
+  file="$(hlocate $@|fzf)"
+  [ -z "${file}" ] || xdg-open "${file}"
+}
+
 # Python
 # from https://www.fusionbox.com/blog/detail/navigating-your-django-project-with-vim-and-ctags/590/
 ctags-python() {
