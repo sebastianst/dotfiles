@@ -88,6 +88,9 @@ bindsym $mod+Shift+period floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+period focus mode_toggle
 
+#
+bindsym $mod+comma sticky toggle
+
 # focus the parent container
 bindsym $mod+a focus parent
 
