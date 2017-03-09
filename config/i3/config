@@ -169,9 +169,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pulseaudio-ctl up #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-ctl down #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pulseaudio-ctl mute # mute sound
+bindsym XF86AudioRaiseVolume $exec1 pulseaudio-ctl up #increase sound volume
+bindsym XF86AudioLowerVolume $exec1 pulseaudio-ctl down #decrease sound volume
+bindsym XF86AudioMute $exec1 pulseaudio-ctl mute # mute sound
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -186,8 +186,8 @@ bindsym XF86MonBrightnessUp exec xbacklight +10
 bindsym XF86MonBrightnessDown exec xbacklight -10
 
 # Clipboard manager
-bindsym $mod+p exec --no-startup-id clipster -s
-bindsym $mod+Shift+i exec --no-startup-id clipster -c -i
+bindsym $mod+p $exec1 clipster -s
+bindsym $mod+Shift+i $exec1 clipster -c -i
 # Layout switcher
 bindsym $mod+bracketleft $exec1 xkb-switch -n
 
@@ -248,10 +248,10 @@ bindsym $mod+space mode $launcher_mode
 set $bgcmd "sh ~/bin/randombg"
 set $config_mode "Screen layouts: (1) primary (2) secondary (3) both 1+2 (4) both 2+1"
 mode $config_mode {
-    bindsym 1 exec --no-startup-id ~/bin/screen-config 0, exec $bgcmd, mode "default"
-    bindsym 2 exec --no-startup-id ~/bin/screen-config 1, exec $bgcmd, mode "default"
-    bindsym 3 exec --no-startup-id ~/bin/screen-config 0 1, exec $bgcmd, mode "default"
-    bindsym 4 exec --no-startup-id ~/bin/screen-config 1 0, exec $bgcmd, mode "default"
+    bindsym 1 $exec1 ~/bin/screen-config 0, exec $bgcmd, mode "default"
+    bindsym 2 $exec1 ~/bin/screen-config 1, exec $bgcmd, mode "default"
+    bindsym 3 $exec1 ~/bin/screen-config 0 1, exec $bgcmd, mode "default"
+    bindsym 4 $exec1 ~/bin/screen-config 1 0, exec $bgcmd, mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -266,8 +266,8 @@ bar {
 }
 
 # Startup - only i3 specific system applications
-exec --no-startup-id pasystray
-exec --no-startup-id dunst
-exec --no-startup-id $bgcmd
+$exec1 pasystray
+$exec1 dunst
+$exec1 $bgcmd
 # Startup - common applications
-exec --no-startup-id ~/.config/xstartup-apps.sh
+$exec1 ~/.config/xstartup-apps.sh
