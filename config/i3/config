@@ -10,6 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $exec1 exec --no-startup-id
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -187,6 +188,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -10
 # Clipboard manager
 bindsym $mod+p exec --no-startup-id clipster -s
 bindsym $mod+Shift+i exec --no-startup-id clipster -c -i
+# Layout switcher
+bindsym $mod+bracketleft $exec1 xkb-switch -n
 
 # Spotify
 #bindsym XF86Tools exec ~/.i3/i3-run-or-raise/bin/i3-run-or-raise -c Spotify -w 9 spotify
