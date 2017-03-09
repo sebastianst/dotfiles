@@ -167,8 +167,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+Pause exec "sudo pm-suspend"
-
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pulseaudio-ctl up #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-ctl down #decrease sound volume
@@ -217,6 +215,7 @@ mode $power_mode {
     bindsym Escape mode "default"
 }
 bindsym $mod+n mode $power_mode
+bindsym $mod+Pause exec "systemctl suspend"
 
 # Launcher mode
 set $launcher_mode "( )firefox (⬆ )chromium (f)ilemanager p(a)vucontrol (l)ibreoffice (p)idgin (c)alculator (t)imer"
