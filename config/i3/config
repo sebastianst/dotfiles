@@ -197,6 +197,13 @@ for_window [class="Spotify"] mark "music", move scratchpad
 
 # Other window defaults
 for_window [title="Tea Timer"] floating enable, move position center
+for_window [class="Pidgin"] floating enable, resize set 640 480, move position center
+for_window [class="Pidgin" window_role="buddy_list"] \
+  floating enable, resize set 480 800, move position center
+
+# Push annoying Thunderbird Calendar pop-ups to the corner
+no_focus [instance="Calendar" window_role="AlarmWindow"]
+for_window [instance="Calendar" window_role="AlarmWindow"] move position 20 px 40 px
 
 # Power mode
 set $power_mode "(s)leep (h)ibernate (p)owersave (r)estart shut(d)own (e)xit (l)ock screen-(o)ff"
