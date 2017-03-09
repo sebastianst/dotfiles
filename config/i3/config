@@ -10,6 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $exec1 exec --no-startup-id
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -88,6 +89,9 @@ bindsym $mod+Shift+period floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+period focus mode_toggle
 
+#
+bindsym $mod+comma sticky toggle
+
 # focus the parent container
 bindsym $mod+a focus parent
 
@@ -164,12 +168,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+Pause exec "sudo pm-suspend"
-
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pulseaudio-ctl up #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-ctl down #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pulseaudio-ctl mute # mute sound
+bindsym XF86AudioRaiseVolume $exec1 pulseaudio-ctl up #increase sound volume
+bindsym XF86AudioLowerVolume $exec1 pulseaudio-ctl down #decrease sound volume
+bindsym XF86AudioMute $exec1 pulseaudio-ctl mute # mute sound
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -184,8 +186,10 @@ bindsym XF86MonBrightnessUp exec xbacklight +10
 bindsym XF86MonBrightnessDown exec xbacklight -10
 
 # Clipboard manager
-bindsym $mod+p exec --no-startup-id clipster -s
-bindsym $mod+Shift+i exec --no-startup-id clipster -c -i
+bindsym $mod+p $exec1 clipster -s
+bindsym $mod+Shift+i $exec1 clipster -c -i
+# Layout switcher
+bindsym $mod+bracketleft $exec1 xkb-switch -n
 
 # Spotify
 #bindsym XF86Tools exec ~/.i3/i3-run-or-raise/bin/i3-run-or-raise -c Spotify -w 9 spotify
@@ -196,6 +200,13 @@ for_window [class="Spotify"] mark "music", move scratchpad
 
 # Other window defaults
 for_window [title="Tea Timer"] floating enable, move position center
+for_window [class="Pidgin"] floating enable, resize set 640 480, move position center
+for_window [class="Pidgin" window_role="buddy_list"] \
+  floating enable, resize set 480 800, move position center
+
+# Push annoying Thunderbird Calendar pop-ups to the corner
+no_focus [instance="Calendar" window_role="AlarmWindow"]
+for_window [instance="Calendar" window_role="AlarmWindow"] move position 20 px 40 px
 
 # Power mode
 set $power_mode "(s)leep (h)ibernate (p)owersave (r)estart shut(d)own (e)xit (l)ock screen-(o)ff"
@@ -214,6 +225,7 @@ mode $power_mode {
     bindsym Escape mode "default"
 }
 bindsym $mod+n mode $power_mode
+bindsym $mod+Pause exec "systemctl suspend"
 
 # Launcher mode
 set $launcher_mode "( )firefox (⬆ )chromium (f)ilemanager p(a)vucontrol (l)ibreoffice (p)idgin (c)alculator (t)imer"
@@ -236,10 +248,10 @@ bindsym $mod+space mode $launcher_mode
 set $bgcmd "sh ~/bin/randombg"
 set $config_mode "Screen layouts: (1) primary (2) secondary (3) both 1+2 (4) both 2+1"
 mode $config_mode {
-    bindsym 1 exec --no-startup-id ~/bin/screen-config 0, exec $bgcmd, mode "default"
-    bindsym 2 exec --no-startup-id ~/bin/screen-config 1, exec $bgcmd, mode "default"
-    bindsym 3 exec --no-startup-id ~/bin/screen-config 0 1, exec $bgcmd, mode "default"
-    bindsym 4 exec --no-startup-id ~/bin/screen-config 1 0, exec $bgcmd, mode "default"
+    bindsym 1 $exec1 ~/bin/screen-config 0, exec $bgcmd, mode "default"
+    bindsym 2 $exec1 ~/bin/screen-config 1, exec $bgcmd, mode "default"
+    bindsym 3 $exec1 ~/bin/screen-config 0 1, exec $bgcmd, mode "default"
+    bindsym 4 $exec1 ~/bin/screen-config 1 0, exec $bgcmd, mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -254,8 +266,8 @@ bar {
 }
 
 # Startup - only i3 specific system applications
-exec --no-startup-id pasystray
-exec --no-startup-id dunst
-exec --no-startup-id $bgcmd
+$exec1 pasystray
+$exec1 dunst
+$exec1 $bgcmd
 # Startup - common applications
-exec --no-startup-id ~/.config/xstartup-apps.sh
+$exec1 ~/.config/xstartup-apps.sh
