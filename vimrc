@@ -193,12 +193,17 @@ let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 let delimitMate_jump_expansion = 1
 
+""" Copy'n'Paste'n'Stuff """
 " Ctrl-R for find-and-replace of currently visually selected text
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 " Ctrl-C to copy visually selected text to system clipboard
 vnoremap <C-c> "+y
 " Ctrl-V to paste from system clipboard in insert mode
 inoremap <C-v> <C-r>+
+" vim-easyclip
+nnoremap gm m
+nmap <leader>f <plug>EasyClipToggleFormattedPaste
+"nmap M <Plug>MoveMotionEndOfLinePlug " Shadows M - go to middle of screen
 
 " concealing configuration
 set concealcursor=c
