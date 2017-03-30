@@ -209,10 +209,11 @@ no_focus [instance="Calendar" window_role="AlarmWindow"]
 for_window [instance="Calendar" window_role="AlarmWindow"] move position 20 px 40 px
 
 # Power mode
-set $power_mode "(s)leep (h)ibernate (p)owersave (r)estart shut(d)own (e)xit (l)ock screen-(o)ff"
+set $power_mode "(sS)leep (h)ibernate (p)owersave (r)estart shut(d)own (e)xit (l)ock screen-(o)ff"
 mode $power_mode {
     set $screen_off "xset dpms force off"
-    bindsym s exec i3lock -c 003366; exec systemctl suspend; mode "default"
+    bindsym Shift+s exec i3lock -c 003366; exec systemctl suspend; mode "default"
+    bindsym s exec systemctl suspend; mode "default"
     bindsym h exec systemctl hibernate; mode "default"
     bindsym p exec notify-send "powersave not configured yet..."; mode "default"
     bindsym d exec systemctl poweroff; mode "default"
