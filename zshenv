@@ -12,7 +12,7 @@ export XAUTHORITY="${_home_prefix}/.Xauthority"
 export GOPATH="${_home_prefix}/go"
 export GNUPGHOME="${_home_prefix}/.gnupg"
 
-PATH="$PATH:$GOPATH/bin"
+PATH="$PATH:$GOPATH/bin:$HOME/bin"
 
 # from https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2#.tj0bz9a4o
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
