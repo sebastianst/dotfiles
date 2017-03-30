@@ -235,6 +235,11 @@ set complete+=kspell
 nmap <silent> <leader>ss :set spell!<CR>
 nmap <silent> <leader>sz 1z=<CR>
 
+" Thesaurus query plugin - <leader>cs already taken
+let g:tq_map_keys=0
+nnoremap <unique> <Leader>t :ThesaurusQueryReplaceCurrentWord<CR>
+vnoremap <unique> <Leader>t "ty:ThesaurusQueryReplace <C-r>t<CR>
+
 " vim for writing
 augroup pencil
   autocmd!
