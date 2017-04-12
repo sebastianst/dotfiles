@@ -85,5 +85,5 @@ svg2pdf () {
 }
 
 mount/ () {
-  mount $@ | grep '^/' | awk -v on1="$(tput setaf 1)" -v on3="$(tput setaf 2)" -v off="$(tput setaf 0)" '{ $1=on1 $1 off; $3=on3 $3 off }; 1'
+  mount $@ | grep '^/' | awk -v on1="$(tput setaf 1)" -v on3="$(tput setaf 2)" -v off="$(tput setaf 0)" '{ print on1 $1, on3 $3, off $5, $6 }' | column -t
 }
