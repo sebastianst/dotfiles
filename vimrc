@@ -263,6 +263,8 @@ nmap <F9> :NERDTreeToggle<CR>
 
 " magit
 let g:magit_default_fold_level=2 " Unfold all
+let g:magit_show_magit_mapping=''
+nmap <leader>M :MagitOnly<CR>
 
 " vim project rcs
 set exrc
