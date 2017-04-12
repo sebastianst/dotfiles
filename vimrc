@@ -213,6 +213,11 @@ let g:tex_conceal = ""
 " vimtex configuration
 let g:vimtex_view_method = 'zathura'
 
+" YCM YouCompleteMe
+nnoremap <leader>yf :YcmCompleter FixIt<CR>
+nnoremap <leader>yd :YcmCompleter GetDoc<CR>
+nnoremap <leader>yg :YcmCompleter GoTo<CR>
+
 """ TAB KEY
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
