@@ -236,9 +236,9 @@ let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile README setlocal spell
 autocmd FileType gitcommit setlocal spell
+autocmd FileType tex setlocal spell
 set complete+=kspell
-nmap <silent> <leader>ss :set spell!<CR>
-nmap <silent> <leader>sz 1z=<CR>
+nmap <silent> <leader>ss 1z=
 
 " Thesaurus query plugin - <leader>cs already taken
 let g:tq_map_keys=0
@@ -251,6 +251,8 @@ augroup pencil
   autocmd FileType markdown,mkd call pencil#init()
   autocmd FileType text         call pencil#init()
 augroup END
+
+let g:tex_flavor = 'tex'
 
 " Pandoc plugin
 let g:pandoc#formatting#mode = 'hA'
