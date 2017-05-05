@@ -5,4 +5,6 @@ setxkbmap -layout us,de -option grp:menu_toggle -option caps:swapescape -option 
 compton -b
 unclutter -b # remember to install unclutter-xfixes-git from AUR!
 udiskie -As &
+# https://bbs.archlinux.org/viewtopic.php?id=224787
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 exec i3
