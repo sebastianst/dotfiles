@@ -100,7 +100,7 @@ colorscheme solarized
 " airline fonts are installed
 let g:airline_powerline_fonts = 1
 if has("gui_running")
-  if has("gui_gtk2")
+  if has("gui_gtk")
     set guifont=Inconsolata-g\ for\ Powerline\ 12
   endif
 endif
