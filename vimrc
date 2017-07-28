@@ -140,6 +140,7 @@ nnoremap <leader><leader> <c-^>
 " buffer shortcuts
 nnoremap ZW :bwipeout<CR>
 nnoremap ZS :write<CR>
+nnoremap <leader>b :Buffers<CR>
 
 " vimrc mappings
 nnoremap <leader>vm :e $MYVIMRC<CR>
