@@ -169,8 +169,10 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume $exec1 pulseaudio-ctl up #increase sound volume
-bindsym XF86AudioLowerVolume $exec1 pulseaudio-ctl down #decrease sound volume
+bindsym XF86AudioRaiseVolume $exec1 pulseaudio-ctl up 6 #increase sound volume by 6%
+bindsym Shift+XF86AudioRaiseVolume $exec1 pulseaudio-ctl up 2 #increase sound volume by 2%
+bindsym XF86AudioLowerVolume $exec1 pulseaudio-ctl down 6 #decrease sound volume by 6%
+bindsym Shift+XF86AudioLowerVolume $exec1 pulseaudio-ctl down 2 #decrease sound volume by 2%
 bindsym XF86AudioMute $exec1 pulseaudio-ctl mute # mute sound
 
 # Media player controls
