@@ -155,7 +155,7 @@ nnoremap <Down> :echoe "Use j"<CR>
 
 " Switch to english layout if Ö is pressed, or alert
 if executable('xkb-switch')
-  nnoremap Ö :silent !xkb-switch -s us<CR>
+  nnoremap Ö :silent !xkb-switch -s us<CR>:
 else
   nnoremap Ö :echoe "Switch to English laout!"<CR>
 endif
