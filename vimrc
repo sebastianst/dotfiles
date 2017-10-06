@@ -153,6 +153,13 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+" Switch to english layout if Ö is pressed, or alert
+if executable('xkb-switch')
+  nnoremap Ö :silent !xkb-switch -s us<CR>
+else
+  nnoremap Ö :echoe "Switch to English laout!"<CR>
+endif
+
 " Run commands that require an interactive shell
 nnoremap <Leader>r :RunInInteractiveShell<space>
 
