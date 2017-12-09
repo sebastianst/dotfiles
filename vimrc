@@ -76,21 +76,31 @@ set list listchars=tab:»·,trail:·,nbsp:·
 " Use ripgrep
 if executable('rg')
   " Use rg over Grep
-  set grepprg=rg\ --vimgrep
+  set grepprg=rg\ --no-heading\ --vimgrep
+  set grepformat=%f:%l:%c:%m
 
   " fzf.vim
-  " from https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2#.tj0bz9a4o
-  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+  command! -bang -nargs=* Rg
+    \ call fzf#vim#grep(
+    \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+    \   <bang>0 ? fzf#vim#with_preview('up:60%')
+    \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+    \   <bang>0)
 
-  " Let unite use rg
-  let g:unite_source_grep_command = 'rg'
-  let g:unite_source_grep_default_opts = '--vimgrep'
-  let g:unite_source_grep_recursive_opt = ''
-  let g:unite_source_grep_encoding = 'utf-8'
+  " Denite: Ripgrep command on grep source
+  call denite#custom#var('grep', 'command', ['rg'])
+  call denite#custom#var('grep', 'default_opts',
+      \ ['--vimgrep', '--no-heading'])
+  call denite#custom#var('grep', 'recursive_opts', [])
+  call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+  call denite#custom#var('grep', 'separator', ['--'])
+  call denite#custom#var('grep', 'final_opts', [])
 endif
 
-" Unite.vim configuration
-nnoremap <silent> ,g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+" Denite.vim configuration
+nnoremap <silent> ,g :<C-u>Denite grep:. -buffer-name=search-buffer<CR>
+nnoremap ,b :Denite buffer<CR>
+nnoremap ,f :Denite file_rec<CR>
 
 " Color scheme
 set background=dark
@@ -138,9 +148,7 @@ map <Leader>ct :!ctags -R .<CR>
 nnoremap <leader><leader> <c-^>
 
 " buffer shortcuts
-nnoremap ZW :bwipeout<CR>
 nnoremap ZS :write<CR>
-nnoremap <leader>b :Buffers<CR>
 
 " vimrc mappings
 nnoremap <leader>vm :e $MYVIMRC<CR>
