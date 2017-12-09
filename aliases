@@ -44,6 +44,8 @@ alias chgrp='chgrp --preserve-root'
 
 alias xselc='xsel --clipboard'
 alias listify='xselc | xargs | tr " " , | tr -d "\n" | xselc'
+alias rsync.progress='rsync -a --info=progress2'
+alias rsync.skip-by-size='rsync -a --info=progress2 --size-only'
 # quickly edit config files
 alias vimrc='vim ~/.vimrc'
 alias i3c='vim ~/.config/i3/config'
