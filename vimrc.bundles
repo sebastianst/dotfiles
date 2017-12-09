@@ -49,6 +49,8 @@ Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'lyokha/vim-xkbswitch'
 Plugin 'svermeulen/vim-easyclip'
 Plugin 'ron89/thesaurus_query.vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/tsuquyomi'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
