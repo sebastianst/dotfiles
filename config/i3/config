@@ -210,6 +210,8 @@ for_window [class="Pidgin" window_role="buddy_list"] \
 no_focus [instance="Calendar" window_role="AlarmWindow"]
 for_window [instance="Calendar" window_role="AlarmWindow"] move position 20 px 40 px
 
+for_window [class="Kazam"] floating enable
+
 # Power mode
 set $power_mode "(sS)leep (h)ibernate (p)owersave (r)estart shut(d)own (e)xit (l)ock screen-(o)ff"
 mode $power_mode {
