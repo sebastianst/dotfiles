@@ -289,6 +289,9 @@ let g:magit_default_fold_level=2 " Unfold all
 let g:magit_show_magit_mapping=''
 nmap <leader>M :MagitOnly<CR>
 
+" macros
+runtime macros/matchit.vim
+
 " vim project rcs
 set exrc
 set secure
