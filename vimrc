@@ -236,8 +236,12 @@ let g:vimtex_view_method = 'zathura'
 
 " YCM YouCompleteMe
 nnoremap <leader>yf :YcmCompleter FixIt<CR>
-nnoremap <leader>yd :YcmCompleter GetDoc<CR>
+nnoremap <leader>yc :YcmCompleter GetDoc<CR>
 nnoremap <leader>yg :YcmCompleter GoTo<CR>
+nnoremap <leader>yi :YcmCompleter GoToInclude<CR>
+nnoremap <leader>yh :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>yd :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>yt :YcmCompleter GoToType<CR>
 
 """ TAB KEY
 " make YCM compatible with UltiSnips (using supertab)
