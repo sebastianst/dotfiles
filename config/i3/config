@@ -233,7 +233,7 @@ bindsym $mod+n mode $power_mode
 bindsym $mod+Pause exec "systemctl suspend"
 
 # Launcher mode
-set $launcher_mode "( )firefox (⬆ )chromium (f)ilemanager p(a)vucontrol (l)ibreoffice (p)idgin (c)alculator (t)imer"
+set $launcher_mode "( )firefox (⬆ )chromium (f)ilemanager p(a)vucontrol (l)ibreoffice (p)idgin (c)alculator (t)imer (z)otero"
 mode $launcher_mode {
     bindsym space exec firefox, mode "default"
     bindsym Shift+space exec chromium, mode "default"
@@ -243,6 +243,7 @@ mode $launcher_mode {
     bindsym p exec pidgin, mode "default"
     bindsym c exec gnome-calculator, mode "default"
     bindsym t exec ~/bin/teatimer.py -m -d, mode "default"
+    bindsym z exec zotero, mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
