@@ -17,6 +17,10 @@ set ignorecase    " ignore case for searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 
+" gvim specifics
+set guioptions-=m " remove menu
+set guioptions-=T " remove toolbar
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
@@ -178,11 +182,17 @@ let g:html_indent_tags = 'li\|p'
 set splitbelow
 set splitright
 
+" Quicker buffer change
+noremap <A-j> :bp<CR>
+noremap <A-k> :bn<CR>
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+" Quicker tab change
+noremap <A-h> :tabp<CR>
+noremap <A-l> :tabn<CR>
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
