@@ -103,6 +103,7 @@ endif
 
 " Denite.vim configuration
 nnoremap <silent> ,g :<C-u>Denite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> ,c :<C-u>DeniteCursorWord grep -buffer-name=search-buffer<CR>
 nnoremap ,b :Denite buffer<CR>
 nnoremap ,f :Denite file_rec<CR>
 
@@ -252,6 +253,9 @@ nnoremap <leader>yi :YcmCompleter GoToInclude<CR>
 nnoremap <leader>yh :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>yd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>yt :YcmCompleter GoToType<CR>
+
+" Termdebug
+nnoremap <leader>D :packadd termdebug<CR>:Termdebug<space>
 
 """ TAB KEY
 " make YCM compatible with UltiSnips (using supertab)
