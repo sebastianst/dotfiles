@@ -87,7 +87,9 @@ zhighlighters=(main brackets cursor)
 #
 
 # Set (optional) pacman front-end.
-zpacman_frontend='yay'
+[[ -f /usr/bin/pacman ]] && zpacman_frontend='pacman'
+[[ -f /usr/bin/pacaur ]] && zpacman_frontend='pacaur'
+[[ -f /usr/bin/yay ]] && zpacman_frontend='yay'
 
 # Load any helper scripts as defined here
 #zpacman_helper=(aur)
