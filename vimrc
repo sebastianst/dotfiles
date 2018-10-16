@@ -255,6 +255,9 @@ nnoremap <leader>yh :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>yd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>yt :YcmCompleter GoToType<CR>
 
+" Use ycm instead of jedi-vim completion
+let g:jedi#completions_enabled = 0
+
 " Termdebug
 nnoremap <leader>D :packadd termdebug<CR>:Termdebug<space>
 
