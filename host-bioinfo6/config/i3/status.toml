@@ -1,0 +1,74 @@
+theme = "solarized-dark"
+[icons]
+name = "awesome"
+[icons.overrides]
+cpu = "⚡"
+music = ""
+
+[[block]]
+block = "music"
+player = "spotify"
+max_width = 36
+buttons = ["play", "next"]
+
+[[block]]
+block = "disk_space"
+path = "/"
+alias = "/"
+info_type = "available"
+unit = "GB"
+interval = 20
+
+[[block]]
+name = "networkmanager"
+
+[[block]]
+block = "memory"
+format_mem = "{Mug}GB({Mup}%)"
+format_swap = "{SUg}GB({SUp}%)"
+display_type = "memory"
+icons = true
+clickable = true
+interval = 5
+warning_mem = 80
+warning_swap = 80
+critical_mem = 95
+critical_swap = 95
+
+[[block]]
+block = "cpu"
+info = 15
+warning = 50
+interval = 1
+frequency = true
+
+[[block]]
+block = "load"
+format = "{1m} {5m}"
+interval = 3
+
+[[block]]
+block = "weather"
+format = "{weather} {temp}° {wind} m/s {direction}"
+service = { name = "openweathermap", api_key = "2f85ace6a523d52aecb1d86a9f9b2b0e", city_id = "2938913", units = "metric" }
+
+[[block]]
+block = "time"
+format = "%a %d/%m %T"
+timezone = "Europe/Berlin"
+interval = 60
+
+[[block]]
+block = "sound"
+step_width = 3
+on_click = "pavucontrol"
+
+[[block]]
+block = "custom"
+command = "/home/stammler/bin/xkb-layout-icon.sh"
+interval = 1
+on_click = "xkb-switch -n"
+
+[[block]]
+block = "pacman"
+interval = 3600
