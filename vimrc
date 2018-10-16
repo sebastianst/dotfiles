@@ -16,6 +16,7 @@ set incsearch     " do incremental searching
 set ignorecase    " ignore case for searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
+set scrolloff=4   " Show context lines when cursor goes to top/bottom of screen
 
 " gvim specifics
 set guioptions-=m " remove menu
