@@ -288,6 +288,10 @@ let g:tq_map_keys=0
 nnoremap <unique> <Leader>t :ThesaurusQueryReplaceCurrentWord<CR>
 vnoremap <unique> <Leader>t "ty:ThesaurusQueryReplace <C-r>t<CR>
 
+" Formatting
+command HardWrapToggle if &fo =~ 't' | set fo-=t | else | set fo+=t | endif
+nnoremap <leader>fw :HardWrapToggle<CR>
+
 " vim for writing
 augroup pencil
   autocmd!
