@@ -24,8 +24,8 @@ name = "networkmanager"
 
 [[block]]
 block = "memory"
-format_mem = "{Mug}GB({Mup}%)"
-format_swap = "{SUg}GB({SUp}%)"
+format_mem = "{MAg}GB({MApi}%)"
+format_swap = "{SUg}GB({SUpi}%)"
 display_type = "memory"
 icons = true
 clickable = true
@@ -49,7 +49,7 @@ interval = 3
 
 [[block]]
 block = "weather"
-format = "{weather} {temp}° {wind} m/s {direction}"
+format = "{weather} {temp}° {wind}m/s {direction}"
 service = { name = "openweathermap", api_key = "2f85ace6a523d52aecb1d86a9f9b2b0e", city_id = "2938913", units = "metric" }
 
 [[block]]
