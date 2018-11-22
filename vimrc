@@ -309,6 +309,10 @@ let g:pandoc#formatting#extra_equalprg = '--reference-links --reference-location
 nmap <F8> :TagbarToggle<CR>
 " nerdtree
 nmap <F9> :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen = 1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 
 " magit
 let g:magit_default_fold_level=2 " Unfold all
