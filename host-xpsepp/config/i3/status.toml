@@ -51,7 +51,7 @@ frequency = true
 
 [[block]]
 block = "load"
-format = "{1m} {5m}"
+format = "{1m} {5m} {15m}"
 interval = 3
 
 [[block]]
