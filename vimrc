@@ -292,18 +292,7 @@ vnoremap <unique> <Leader>t "ty:ThesaurusQueryReplace <C-r>t<CR>
 command HardWrapToggle if &fo =~ 't' | set fo-=t | else | set fo+=t | endif
 nnoremap <leader>fw :HardWrapToggle<CR>
 
-" vim for writing
-augroup pencil
-  autocmd!
-  autocmd FileType markdown,mkd call pencil#init()
-  autocmd FileType text         call pencil#init()
-augroup END
-
 let g:tex_flavor = 'tex'
-
-" Pandoc plugin
-let g:pandoc#formatting#mode = 'hA'
-let g:pandoc#formatting#extra_equalprg = '--reference-links --reference-location=block --atx-headers'
 
 " tagbar
 nmap <F8> :TagbarToggle<CR>
