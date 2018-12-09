@@ -1,1 +1,2 @@
 export DEFAULT_USER=sebas
+export LIBVA_DRIVER_NAME=iHD
