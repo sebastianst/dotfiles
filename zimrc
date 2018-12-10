@@ -11,7 +11,7 @@
 
 # Enable ssh module only for given hosts
 # Unfortunately, cannot use .zim.pre, because home dir is shared in cbs...
-if [[ $HOST == ("bioinfo6"|"xpsepp") ]]; then
+if [[ -f ~/.ssh/id_ed25519 ]]; then
   zmodules+=(ssh)
   # Load these ssh identities with the ssh module
   zssh_ids=(id_ed25519)
