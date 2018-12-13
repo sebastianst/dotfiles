@@ -245,6 +245,8 @@ let g:tex_conceal = ""
 
 " vimtex configuration
 let g:vimtex_view_method = 'zathura'
+let g:vimtex_fold_enabled = 1
+let g:vimtex_fold_manual = 1
 
 " YCM YouCompleteMe
 nnoremap <leader>yf :YcmCompleter FixIt<CR>
@@ -254,6 +256,12 @@ nnoremap <leader>yi :YcmCompleter GoToInclude<CR>
 nnoremap <leader>yh :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>yd :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>yt :YcmCompleter GoToType<CR>
+
+" YCM for tex
+if !exists('g:ycm_semantic_triggers')
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
 " Use ycm instead of jedi-vim completion
 let g:jedi#completions_enabled = 0
