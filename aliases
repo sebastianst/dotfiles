@@ -47,6 +47,7 @@ alias xselc='xsel --clipboard'
 alias listify='xselc | xargs | tr " " , | tr -d "\n" | xselc'
 alias rsync.progress='rsync -a --info=progress2'
 alias rsync.skip-by-size='rsync -a --info=progress2 --size-only'
+alias spotify-open='qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.OpenUri'
 # quickly edit config files
 alias vimrc='vim ~/.vimrc'
 alias i3c='vim ~/.config/i3/config'
