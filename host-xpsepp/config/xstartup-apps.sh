@@ -6,3 +6,4 @@ redshift-gtk &
 thunderbird &
 pidgin &
 spotify &
+Desktop-Bridge & # Protonmail
