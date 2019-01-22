@@ -53,6 +53,9 @@ Plugin 'Quramy/tsuquyomi'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'cespare/vim-toml'
+" Solidity
+Plugin 'tomlion/vim-solidity'
+Plugin 'dmdque/solidity.vim'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local

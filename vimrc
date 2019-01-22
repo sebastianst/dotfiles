@@ -78,6 +78,8 @@ set expandtab
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
+  autocmd FileType solidity setlocal tabstop=4
+  autocmd FileType solidity setlocal shiftwidth=4
 
 " Use ripgrep
 if executable('rg')
