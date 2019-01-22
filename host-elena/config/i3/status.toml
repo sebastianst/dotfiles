@@ -55,6 +55,11 @@ format = "{1m} {5m}"
 interval = 3
 
 [[block]]
+block = "temperature"
+interval = 10
+format = "{min}°/{max}°/{average}°"
+
+[[block]]
 block = "weather"
 format = "{weather} {temp}° {wind} m/s {direction}"
 service = { name = "openweathermap", api_key = "2f85ace6a523d52aecb1d86a9f9b2b0e", city_id = "2938913", units = "metric" }
