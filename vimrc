@@ -18,7 +18,12 @@ set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set scrolloff=4   " Show context lines when cursor goes to top/bottom of screen
 set linebreak     " Do not break words but only at breakat chars
+set textwidth=80
+set colorcolumn=+1,+21 " show where textwidth and 20 more is
 
+" Line Numbers
+set number
+set numberwidth=4
 " gvim specifics
 set guioptions-=m " remove menu
 set guioptions-=T " remove toolbar
@@ -29,11 +34,6 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
 
-" Local config
-if filereadable($HOME . "/.vimrc.local")
-  source ~/.vimrc.local
-endif
-
 " Plugins
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
@@ -41,9 +41,17 @@ endif
 
 filetype plugin indent on
 
-augroup vimrcEx
-  autocmd!
+" Softtabs, 2 spaces
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set expandtab
 
+" Display extra whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
+
+if !exists("autocommands_loaded")
+  let autocommands_loaded = 1
   " When editing a file, always jump to the last known cursor position.
   " Don't do it for commit messages, when the position is invalid, or when
   " inside an event handler (happens when dropping a file on gvim).
@@ -56,30 +64,19 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile Appraisals set filetype=ruby
   autocmd BufRead,BufNewFile *.md set filetype=markdown
 
-  " Enable spellchecking for Markdown
   autocmd FileType markdown setlocal spell
+  autocmd FileType tex setlocal spell
+  autocmd BufRead,BufNewFile README setlocal spell
 
-  " Automatically wrap at 80 characters for Markdown
-  autocmd BufRead,BufNewFile *.md setlocal textwidth=80
-
-  " Automatically wrap at 72 characters and spell check git commit messages
   autocmd FileType gitcommit setlocal textwidth=72
   autocmd FileType gitcommit setlocal spell
 
   " Allow stylesheets to autocomplete hyphenated words
   autocmd FileType css,scss,sass setlocal iskeyword+=-
-augroup END
 
-" Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
-set shiftround
-set expandtab
-
-" Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
   autocmd FileType solidity setlocal tabstop=4
   autocmd FileType solidity setlocal shiftwidth=4
+endif
 
 " Use ripgrep
 if executable('rg')
@@ -123,14 +120,6 @@ if has("gui_running")
     set guifont=Inconsolata-g\ for\ Powerline\ 12
   endif
 endif
-
-" Make it obvious where 80 characters is
-set textwidth=80
-set colorcolumn=+1
-
-" Numbers
-set number
-set numberwidth=5
 
 " Tab completion
 " will insert tab at beginning of line,
@@ -286,10 +275,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/UltiSnips"]
 
 " Spell checker
-autocmd BufRead,BufNewFile *.md setlocal spell
-autocmd BufRead,BufNewFile README setlocal spell
-autocmd FileType gitcommit setlocal spell
-autocmd FileType tex setlocal spell
 set complete+=kspell
 nmap <silent> <leader>ss 1z=
 
@@ -324,3 +309,8 @@ runtime macros/matchit.vim
 " vim project rcs
 set exrc
 set secure
+
+" Local config
+if filereadable($HOME . "/.vimrc.local")
+  source ~/.vimrc.local
+endif
