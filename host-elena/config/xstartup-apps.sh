@@ -5,3 +5,4 @@ nm-applet &
 redshift-gtk &
 thunderbird &
 spotify &
+protonmail-bridge & # Protonmail
