@@ -6,4 +6,5 @@ blueman-applet &
 redshift-gtk &
 thunderbird &
 spotify &
+rambox &
 protonmail-bridge & # Protonmail
