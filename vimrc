@@ -218,6 +218,10 @@ let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 let delimitMate_jump_expansion = 1
 
+" move next symbol after/before following word - good for moving closing braces
+inoremap <C-l> <C-c>l"hxe"hpi
+inoremap <C-h> <C-c>l"hxb"hPi
+
 """ Copy'n'Paste'n'Stuff """
 " Ctrl-R for find-and-replace of currently visually selected text
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
