@@ -28,6 +28,7 @@ set numberwidth=4
 set guioptions-=m " remove menu
 set guioptions-=T " remove toolbar
 
+filetype plugin indent on
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
@@ -38,8 +39,6 @@ endif
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
-
-filetype plugin indent on
 
 " Softtabs, 2 spaces
 set tabstop=2
