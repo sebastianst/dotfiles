@@ -73,8 +73,8 @@ if !exists("autocommands_loaded")
   " Allow stylesheets to autocomplete hyphenated words
   autocmd FileType css,scss,sass setlocal iskeyword+=-
 
-  autocmd FileType solidity setlocal tabstop=4
-  autocmd FileType solidity setlocal shiftwidth=4
+  autocmd FileType solidity,proto setlocal tabstop=4
+  autocmd FileType solidity,proto setlocal shiftwidth=4
 endif
 
 " Use ripgrep
