@@ -197,6 +197,13 @@ let g:syntastic_javascript_checkers = ["eslint"]
 " TypeScript
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
+" golang
+
+let g:syntastic_go_checkers = ['golint', 'govet', 'gometalinter']
+let g:syntastic_go_gometalinter_args = ['--disable-all', '--enable=errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
+let g:go_list_type = "quickfix"
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
