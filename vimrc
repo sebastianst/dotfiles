@@ -21,6 +21,8 @@ set linebreak     " Do not break words but only at breakat chars
 set textwidth=80
 set colorcolumn=+1,+21 " show where textwidth and 20 more is
 
+set mouse=a
+
 " Line Numbers
 set number
 set numberwidth=4
@@ -184,8 +186,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 " Quicker tab change
-noremap <A-h> :tabp<CR>
-noremap <A-l> :tabn<CR>
+noremap <silent> <A-h> :tabp<CR>
+noremap <silent> <A-l> :tabn<CR>
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
