@@ -269,6 +269,20 @@ let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 " Use ycm instead of jedi-vim completion
 let g:jedi#completions_enabled = 0
 
+""" deoplete
+let g:deoplete#enable_at_startup = 1
+" go
+"call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+" latex
+call deoplete#custom#var('omni', 'input_patterns', {
+      \ 'tex': g:vimtex#re#deoplete
+      \})
+" LanguagleClient for language servers
+let g:LanguageClient_serverCommands = {
+      \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+      \ 'go': ['~/go/bin/gopls'],
+      \ }
+
 " Termdebug
 nnoremap <leader>D :packadd termdebug<CR>:Termdebug<space>
 

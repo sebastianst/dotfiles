@@ -32,9 +32,20 @@ Plug 'fatih/vim-go'
 Plug 'davidhalter/jedi-vim'
 Plug 'terryma/vim-expand-region'
 Plug 'Shougo/denite.nvim'
+" autocompletion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugs' }
+if !has('nvim')
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'lervag/vimtex'
 Plug 'ervandew/supertab'
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'Valloric/MatchTagAlways'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
