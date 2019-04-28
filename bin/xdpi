@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if (( $# != 1 )); then
+  xrdb -merge ~/.Xresources
+  exit 0
+fi
+
+dpi=$1
+xrdb -override <(echo "Xft.dpi: ${dpi}")
