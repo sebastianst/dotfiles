@@ -28,10 +28,10 @@ Plug 'cohama/lexima.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'davidhalter/jedi-vim'
 Plug 'terryma/vim-expand-region'
-Plug 'Shougo/denite.nvim'
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugs' }
 " autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugs' }
 if !has('nvim')
@@ -40,12 +40,12 @@ if !has('nvim')
 endif
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
+    \ 'do': 'make release',
     \ }
 Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'lervag/vimtex'
 Plug 'ervandew/supertab'
-"Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --system-libclang --system-boost --ts-completer' }
 Plug 'Valloric/MatchTagAlways'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
