@@ -16,3 +16,10 @@ if err != nil {
 ${0}
 endsnippet
 
+# if inline wrapped error
+snippet ifew "if err := ...; err != nil { errors.Wrap(err, ...) }"
+if err := ${1:condition}; err != nil {
+	errors.Wrap(err, "${2:message}")
+}
+${0}
+endsnippet
