@@ -3,23 +3,31 @@
 # errors.Wrap err test
 snippet errw "if err != nil { errors.Wrap(err, ...) }"
 if err != nil {
-	errors.Wrap(err, "${1:message}")
+	return errors.Wrap(err, "${1:context}")
 }
 ${0}
 endsnippet
 
 # errors.Wrap multiple return
-snippet errnw,  "if err != nil { nil, errors.Wrap(err, ...) }" !b
+snippet errnw "if err != nil { nil, errors.Wrap(err, ...) }" !b
 if err != nil {
-	return ${1:nil}, errors.Wrap(err, "${1:message}")
+	return ${1:nil}, errors.Wrap(err, "${1:context}")
 }
 ${0}
 endsnippet
 
-# if inline wrapped error
+# inline errors.Wrap err test
 snippet ifew "if err := ...; err != nil { errors.Wrap(err, ...) }"
-if err := ${1:condition}; err != nil {
-	errors.Wrap(err, "${2:message}")
+if err := ${1:expr}; err != nil {
+	return errors.Wrap(err, "${2:context}")
+}
+${0}
+endsnippet
+
+# inline errors.Wrap multiple return
+snippet errnw "if var, err := ...; != nil { nil, errors.Wrap(err, ...) }" !b
+if ${1:var}, err := ${2:expr}; err != nil {
+	return ${3:nil}, errors.Wrap(err, "${4:context}")
 }
 ${0}
 endsnippet
