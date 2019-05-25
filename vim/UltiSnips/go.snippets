@@ -1,7 +1,7 @@
 # additional go snippets to those provided by vim-go
 
 # errors.Wrap err test
-snippet errw "if err != nil { errors.Wrap(err, ...) }"
+snippet errw "if err != nil { errors.Wrap(err, ...) }" !b
 if err != nil {
 	return errors.Wrap(err, "${1:context}")
 }
@@ -17,7 +17,7 @@ ${0}
 endsnippet
 
 # inline errors.Wrap err test
-snippet ifew "if err := ...; err != nil { errors.Wrap(err, ...) }"
+snippet ifew "if err := ...; err != nil { errors.Wrap(err, ...) }" !b
 if err := ${1:expr}; err != nil {
 	return errors.Wrap(err, "${2:context}")
 }
@@ -28,6 +28,27 @@ endsnippet
 snippet errnw "if var, err := ...; != nil { nil, errors.Wrap(err, ...) }" !b
 if ${1:var}, err := ${2:expr}; err != nil {
 	return ${3:nil}, errors.Wrap(err, "${4:context}")
+} ${0}
+endsnippet
+
+global !p
+def newline_to_quoted_list(l):
+	return ", ".join(map('"{0}"'.format, l.split()))
+
+def first_char_lower_or(text, default):
+	return default if len(text) == 0 else text[0].lower()
+endglobal
+
+snippet enum "iota enum with String()" !b
+type ${1} ${2:uint8}
+
+const (
+	${3:First} $1 = iota
+	${4:SecondEtc}
+)
+
+func (`!p snip.rv = first_char_lower_or(t[1],'e')` $1) String() string {
+	return [...]string{`!p snip.rv = newline_to_quoted_list(t[3]+'\n'+t[4])`}[`!p snip.rv = first_char_lower_or(t[1],'e')`]
 }
 ${0}
 endsnippet
