@@ -110,11 +110,12 @@ nnoremap ,b :Denite buffer<CR>
 nnoremap ,f :Denite file_rec<CR>
 
 " Color scheme
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set background=dark
-colorscheme solarized
-"highlight NonText guibg=#060606
-"highlight Folded  guibg=#0A0A0A guifg=#9090D0
-" airline fonts are installed
+colorscheme solarized8
+
 let g:airline_powerline_fonts = 1
 if has("gui_running")
   if has("gui_gtk")
