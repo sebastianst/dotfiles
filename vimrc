@@ -250,6 +250,10 @@ let g:tex_conceal = ""
 " vimtex configuration
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_fold_enabled = 1
+" for backwards search, vimtex needs a remote server
+if has('nvim')
+  let g:vimtex_compiler_progname = 'nvr'
+endif
 
 " YCM YouCompleteMe
 nnoremap <leader>yf :YcmCompleter FixIt<CR>
