@@ -113,7 +113,21 @@ set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set background=dark
-colorscheme solarized8
+" onedark
+let g:onedark_terminal_italics = 1
+augroup onedarkext
+  autocmd!
+  let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
+  let s:grey = { "gui": "#3E4452", "cterm": "237" }
+  autocmd ColorScheme * call onedark#set_highlight("MatchParen", { "fg": s:white, "bg": s:grey, "gui": "bold" })
+  let s:red = {"gui": "#E06C75"}
+  let s:yellow = {"gui": "#E5C07B"}
+  autocmd ColorScheme * call onedark#set_highlight("SpellBad", { "sp": s:red, "gui": "undercurl" })
+  autocmd ColorScheme * call onedark#set_highlight("SpellCap", { "sp": s:yellow, "gui": "undercurl" })
+  autocmd ColorScheme * call onedark#set_highlight("SpellLocal", { "sp": s:yellow, "gui": "undercurl" })
+  autocmd ColorScheme * call onedark#set_highlight("SpellRare", { "sp": s:yellow, "gui": "undercurl" })
+augroup END
+colorscheme onedark
 
 let g:airline_powerline_fonts = 1
 if has("gui_running")
