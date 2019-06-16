@@ -32,7 +32,6 @@ set guioptions-=T " remove toolbar
 
 filetype plugin indent on
 " Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
@@ -48,8 +47,8 @@ set shiftwidth=2
 set shiftround
 set expandtab
 
-" Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
+set showbreak=↪\ 
+set list listchars=tab:›\ ,nbsp:␣,trail:•,extends:…,precedes:…
 
 if !exists("autocommands_loaded")
   let autocommands_loaded = 1
