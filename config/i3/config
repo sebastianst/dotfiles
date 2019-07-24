@@ -200,6 +200,10 @@ bindsym XF86Tools [con_mark="music"] scratchpad show
 bindsym $mod+Shift+m [con_mark="music"] scratchpad show
 for_window [class="Spotify"] mark "music", move scratchpad
 
+# Turtl notes
+bindsym $mod+Shift+n [con_mark="notes"] scratchpad show
+for_window [class="Turtl"] mark "notes", move scratchpad
+
 # Other window defaults
 for_window [title="Tea Timer"] floating enable, move position center
 for_window [class="Pidgin"] floating enable, resize set 640 480, move position center
