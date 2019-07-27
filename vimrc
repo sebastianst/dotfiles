@@ -238,8 +238,8 @@ set spellfile=$HOME/.vim-spell-en.utf-8.add
 let g:XkbSwitchNLayout = 'us'
 let g:XkbSwitchILayout = 'de'
 
-" Always use vertical diffs
-set diffopt+=vertical
+" Always use vertical and internal diffs, with patience algo
+set diffopt+=vertical,internal,algorithm:patience
 
 " airline setup
 let g:airline#extensions#tabline#enabled = 1
@@ -272,7 +272,7 @@ let g:tex_conceal = ""
 
 " vimtex configuration
 let g:vimtex_view_method = 'zathura'
-let g:vimtex_fold_enabled = 1
+let g:vimtex_fold_enabled = 0
 " for backwards search, vimtex needs a remote server
 if has('nvim')
   let g:vimtex_compiler_progname = 'nvr'
