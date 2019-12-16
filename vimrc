@@ -229,6 +229,7 @@ let g:go_highlight_types = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_fields = 0
 let g:go_highlight_operators = 1
+let g:go_gorename_command = 'gopls'
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
