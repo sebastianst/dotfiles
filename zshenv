@@ -1,5 +1,5 @@
 umask 027
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR=$VISUAL
 
 # Use local/scratch XDG Paths, if present and flagged with .useme file
