@@ -309,6 +309,8 @@ call deoplete#custom#var('omni', 'input_patterns', {
 let g:LanguageClient_serverCommands = {
       \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
       \ 'go': ['~/go/bin/gopls'],
+      \ 'typescript': ['javascript-typescript-stdio'],
+      \ 'javascript': ['javascript-typescript-stdio'],
       \ }
 
 " Termdebug
