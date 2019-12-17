@@ -53,6 +53,10 @@ alias vimrc='vim ~/.vimrc'
 alias i3c='vim ~/.config/i3/config'
 alias e.='(cd ~/.dotfiles; vim $(git ls-tree -r master --name-only | fzf))'
 
+# git aliases - extension to zim's
+alias gcom='git checkout master'
+alias gcod='git checkout dev'
+
 # Arch aliases
 alias makesrcinfo='rm .SRCINFO; makepkg --printsrcinfo > .SRCINFO'
 
