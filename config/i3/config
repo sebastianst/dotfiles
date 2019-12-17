@@ -256,12 +256,14 @@ bindsym $mod+space mode $launcher_mode
 
 # Configuration mode
 set $bgcmd "sh ~/bin/randombg"
-set $config_mode "Screen layouts: (1) primary (2) secondary (3) both 1+2 (4) both 2+1; Toggle (b)luetooth; Keyboard: (U)HK (n)ormal"
+set $config_mode "Screen layouts: (1) primary (2) secondary (3) 1+2 (4) 2+1 (5) 2+3 (6) 3+2; Toggle (b)luetooth; Keyboard: (U)HK (n)ormal"
 mode $config_mode {
     bindsym 1 $exec1 ~/bin/screen-config 0, exec $bgcmd, mode "default"
     bindsym 2 $exec1 ~/bin/screen-config 1, exec $bgcmd, mode "default"
     bindsym 3 $exec1 ~/bin/screen-config 0 1, exec $bgcmd, mode "default"
     bindsym 4 $exec1 ~/bin/screen-config 1 0, exec $bgcmd, mode "default"
+    bindsym 5 $exec1 ~/bin/screen-config 1 2, exec $bgcmd, mode "default"
+    bindsym 6 $exec1 ~/bin/screen-config 2 1, exec $bgcmd, mode "default"
 
     bindsym b $exec1 ~/bin/toggle-bluetooth.sh, mode "default"
 
