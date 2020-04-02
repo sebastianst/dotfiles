@@ -20,6 +20,7 @@ set scrolloff=4   " Show context lines when cursor goes to top/bottom of screen
 set linebreak     " Do not break words but only at breakat chars
 set textwidth=80
 set colorcolumn=+1,+21 " show where textwidth and 20 more is
+set nojoinspaces  " Do not put two spaces after ., ? or !
 
 set mouse=a
 
