@@ -233,7 +233,12 @@ let g:go_highlight_types = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_fields = 0
 let g:go_highlight_operators = 1
-let g:go_gorename_command = 'gopls'
+let g:go_rename_command = 'gopls'
+autocmd FileType go let b:go_fmt_options = {
+  \ 'gofmt': '-s',
+  \ 'goimports': '-local ' .
+    \ trim(system('{cd '. shellescape(expand('%:h')) .' && go list -m;}')),
+  \ }
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
