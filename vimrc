@@ -130,6 +130,9 @@ augroup onedarkext
 augroup END
 colorscheme onedark
 
+" vim-rainbow
+let g:rainbow_active = 1
+
 let g:airline_powerline_fonts = 1
 if has("gui_running")
   if has("gui_gtk")
