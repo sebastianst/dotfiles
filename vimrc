@@ -92,22 +92,9 @@ if executable('rg')
     \   <bang>0 ? fzf#vim#with_preview('up:60%')
     \           : fzf#vim#with_preview('right:50%:hidden', '?'),
     \   <bang>0)
-
-  " Denite: Ripgrep command on grep source
-  call denite#custom#var('grep', 'command', ['rg'])
-  call denite#custom#var('grep', 'default_opts',
-      \ ['--vimgrep', '--no-heading'])
-  call denite#custom#var('grep', 'recursive_opts', [])
-  call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-  call denite#custom#var('grep', 'separator', ['--'])
-  call denite#custom#var('grep', 'final_opts', [])
 endif
 
-" Denite.vim configuration
-nnoremap <silent> ,g :<C-u>Denite grep:. -buffer-name=search-buffer<CR>
-nnoremap <silent> ,c :<C-u>DeniteCursorWord grep -buffer-name=search-buffer<CR>
-nnoremap ,b :Denite buffer<CR>
-nnoremap ,f :Denite file_rec<CR>
+source ~/.vim/plugconfigs/denite.vim
 
 " Color scheme
 set termguicolors
