@@ -168,6 +168,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Emoji picker
+bindsym $mod+g $exec1 rofimoji
+
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume $exec1 pulseaudio-ctl up 6 #increase sound volume by 6%
 bindsym Shift+XF86AudioRaiseVolume $exec1 pulseaudio-ctl up 2 #increase sound volume by 2%
