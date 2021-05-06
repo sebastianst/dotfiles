@@ -1,12 +1,12 @@
 #!/bin/sh
-RFID=1
+RFID=bluetooth
 
 if systemctl is-active --quiet bluetooth; then
   pkill blueman-applet
   sudo systemctl stop bluetooth
-  rfkill block $RFID
+  sudo rfkill block $RFID
 else
-  rfkill unblock $RFID
+  sudo rfkill unblock $RFID
   sudo systemctl start bluetooth
   blueman-applet
 fi
