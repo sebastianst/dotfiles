@@ -41,3 +41,11 @@ bindkey -M isearch '^P' vi-rev-repeat-search
 bindkey -M viins '^H' backward-delete-char
 bindkey -M viins '^W' backward-kill-word
 bindkey -M viins '^U' kill-line
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /home/seb/src/ganache/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/seb/src/ganache/node_modules/tabtab/.completions/electron-forge.zsh
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
