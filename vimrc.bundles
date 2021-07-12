@@ -38,6 +38,7 @@ Plug 'terryma/vim-expand-region'
 
 " Utilities
 Plug 'preservim/nerdtree'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'preservim/tagbar'
 
 " Git
@@ -64,13 +65,14 @@ Plug 'TovarishFin/vim-solidity'
 Plug 'dmdque/solidity.vim'
 
 " Typescript
-Plug 'leafgarland/typescript-vim' "syntax
-"Plug 'Quramy/tsuquyomi' " Omni-completion etc.
+Plug 'leafgarland/typescript-vim' " syntax
 
 " Other language support
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex' " LaTeX
 Plug 'cespare/vim-toml'
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim' " html
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'ron89/thesaurus_query.vim'
 
 " autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -84,9 +86,6 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --system-libclang --system-boost' }
-Plug 'ron89/thesaurus_query.vim'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'octol/vim-cpp-enhanced-highlight'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
