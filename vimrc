@@ -123,7 +123,7 @@ endif
 " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
-" Index ctags from any project, including those outside Rails
+" Index ctags from any project
 map <Leader>ct :!ctags -R .<CR>
 
 " Switch between the last two files
@@ -344,17 +344,12 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
-" magit
-let g:magit_default_fold_level=2 " Unfold all
-let g:magit_show_magit_mapping=''
-nmap <leader>M :MagitOnly<CR>
+" Emmet
+let g:user_emmet_leader_key=','
 
 " vim project rcs
 set exrc
 set secure
-
-" Emmet
-let g:user_emmet_leader_key=','
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
