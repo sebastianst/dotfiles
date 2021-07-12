@@ -27,6 +27,11 @@ if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
 
+" Per Plugin configs
+for f in glob('~/.vim/plugconfigs/*.vim', 0, 1)
+  execute 'source' f
+endfor
+
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
