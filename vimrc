@@ -229,6 +229,7 @@ autocmd FileType go let b:go_fmt_options = {
   \ 'goimports': '-local ' .
     \ trim(system('{cd '. shellescape(expand('%:h')) .' && go list -m;}')),
   \ }
+let g:go_imports_autosave = 1
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
