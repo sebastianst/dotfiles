@@ -6,33 +6,42 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
-Plug 'croaky/vim-colors-github'
-"Plug 'ctrlpvim/ctrlp.vim'
+" Vim Core plugins
 Plug 'pbrisbin/vim-mkdir'
 Plug 'qpkorr/vim-bufkill'
-Plug 'scrooloose/syntastic'
-Plug 'tpope/vim-eunuch'
-" Git Stuff
-"Plug 'tpope/vim-fugitive'
-Plug 'jreybert/vimagit'
-Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-abolish'
-Plug 'vim-scripts/matchit.zip'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-eunuch'
 Plug 'Konfekt/FastFold'
-Plug 'cohama/lexima.vim'
+
+" Display
+Plug 'Yggdroot/indentLine'
+Plug 'frazrepo/vim-rainbow'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'joshdick/onedark.vim'
-Plug 'frazrepo/vim-rainbow'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'davidhalter/jedi-vim'
+
+" Editing
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-abolish'
+Plug 'preservim/nerdcommenter'
+Plug 'cohama/lexima.vim'
 Plug 'terryma/vim-expand-region'
+
+" Utilities
+Plug 'preservim/nerdtree'
+
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" IDE
+Plug 'vim-syntastic/syntastic'
+
+" Golang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'buoto/gotests-vim'
+
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 " autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -47,7 +56,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'lervag/vimtex'
 Plug 'ervandew/supertab'
-"Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --system-libclang --system-boost --ts-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --system-libclang --system-boost' }
 Plug 'Valloric/MatchTagAlways'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -64,7 +73,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'cespare/vim-toml'
 " Solidity
-Plug 'tomlion/vim-solidity'
+Plug 'TovarishFin/vim-solidity'
 Plug 'dmdque/solidity.vim'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
