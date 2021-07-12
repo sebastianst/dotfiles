@@ -238,10 +238,24 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 vnoremap <C-c> "+y
 " Ctrl-V to paste from system clipboard in insert mode, literally
 inoremap <C-v> <C-r><C-o>+
-" vim-easyclip
+
+" vim-cutlass
 nnoremap gm m
-nmap <leader>f <plug>EasyClipToggleFormattedPaste
-"nmap M <Plug>MoveMotionEndOfLinePlug " Shadows M - go to middle of screen
+nnoremap m d
+xnoremap m d
+nnoremap mm dd
+nnoremap M D
+
+" vim-yoink
+let g:yoinkIncludeDeleteOperations = 1
+let g:yoinkSavePersistently = 1
+nmap <C-n> <plug>(YoinkPostPasteSwapBack)
+nmap <C-p> <plug>(YoinkPostPasteSwapForward)
+nmap p <plug>(YoinkPaste_p)
+nmap P <plug>(YoinkPaste_P)
+nmap gp <plug>(YoinkPaste_gp)
+nmap gP <plug>(YoinkPaste_gP)
+nmap <C-=> <plug>(YoinkPostPasteToggleFormat)
 
 " concealing configuration
 set concealcursor=c

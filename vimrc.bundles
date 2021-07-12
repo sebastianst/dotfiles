@@ -14,9 +14,16 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
 Plug 'Konfekt/FastFold'
+Plug 'lyokha/vim-xkbswitch'
+
+" Clipboard
+Plug 'svermeulen/vim-cutlass'
+Plug 'svermeulen/vim-yoink'
 
 " Display
 Plug 'Yggdroot/indentLine'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'Valloric/MatchTagAlways'
 Plug 'frazrepo/vim-rainbow'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -31,6 +38,7 @@ Plug 'terryma/vim-expand-region'
 
 " Utilities
 Plug 'preservim/nerdtree'
+Plug 'preservim/tagbar'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -43,10 +51,26 @@ Plug 'nvim-telescope/telescope.nvim'
 
 " IDE
 Plug 'vim-syntastic/syntastic'
+Plug 'ervandew/supertab'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'buoto/gotests-vim'
+
+" Solidity
+Plug 'TovarishFin/vim-solidity'
+Plug 'dmdque/solidity.vim'
+
+" Typescript
+Plug 'leafgarland/typescript-vim' "syntax
+"Plug 'Quramy/tsuquyomi' " Omni-completion etc.
+
+" Other language support
+Plug 'lervag/vimtex'
+Plug 'cespare/vim-toml'
+Plug 'mattn/emmet-vim'
 
 " autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -59,26 +83,10 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'make release',
     \ }
 Plug 'deoplete-plugins/deoplete-jedi'
-Plug 'lervag/vimtex'
-Plug 'ervandew/supertab'
 Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --system-libclang --system-boost' }
-Plug 'Valloric/MatchTagAlways'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'majutsushi/tagbar'
-Plug 'lyokha/vim-xkbswitch'
-Plug 'svermeulen/vim-easyclip'
 Plug 'ron89/thesaurus_query.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi'
-Plug 'mattn/emmet-vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'cespare/vim-toml'
-" Solidity
-Plug 'TovarishFin/vim-solidity'
-Plug 'dmdque/solidity.vim'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
