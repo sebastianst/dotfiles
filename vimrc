@@ -380,6 +380,9 @@ runtime macros/matchit.vim
 set exrc
 set secure
 
+" Emmet
+let g:user_emmet_leader_key=','
+
 " Local config
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
