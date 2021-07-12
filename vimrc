@@ -255,8 +255,8 @@ inoremap <C-h> <C-c>l"hxb"hPi
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 " Ctrl-C to copy visually selected text to system clipboard
 vnoremap <C-c> "+y
-" Ctrl-V to paste from system clipboard in insert mode
-inoremap <C-v> <C-r>+
+" Ctrl-V to paste from system clipboard in insert mode, literally
+inoremap <C-v> <C-r><C-o>+
 " vim-easyclip
 nnoremap gm m
 nmap <leader>f <plug>EasyClipToggleFormattedPaste
