@@ -344,7 +344,9 @@ vnoremap <unique> <Leader>t "ty:ThesaurusQueryReplace <C-r>t<CR>
 command HardWrapToggle if &fo =~ 't' | set fo-=t | else | set fo+=t | endif
 nnoremap <leader>fw :HardWrapToggle<CR>
 
+" vimtex
 let g:tex_flavor = 'tex'
+autocmd BufNewFile,BufRead *.tikz setfiletype tex
 
 " tagbar
 nmap <F8> :TagbarToggle<CR>
