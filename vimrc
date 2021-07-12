@@ -350,6 +350,17 @@ autocmd BufNewFile,BufRead *.tikz setfiletype tex
 
 " tagbar
 nmap <F8> :TagbarToggle<CR>
+let g:tagbar_type_solidity = {
+    \ 'ctagstype': 'solidity',
+    \ 'kinds' : [
+        \ 'c:contracts',
+        \ 'e:events',
+        \ 'f:functions',
+        \ 'm:mappings',
+        \ 'v:varialbes',
+    \ ]
+\ }
+
 " nerdtree
 nmap <F9> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen = 1
