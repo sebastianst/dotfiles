@@ -293,6 +293,11 @@ let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 " Use ycm instead of jedi-vim completion
 let g:jedi#completions_enabled = 0
 
+" Enable YCM only for C++ in favor of deoplete
+let g:ycm_filetype_whitelist = {'cpp': 1, 'c': 1}
+autocmd FileType cpp,c
+      \ call deoplete#custom#buffer_option('auto_complete', v:false)
+
 """ deoplete
 let g:deoplete#enable_at_startup = 1
 " go
