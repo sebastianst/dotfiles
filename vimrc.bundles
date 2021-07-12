@@ -7,6 +7,7 @@ endif
 call plug#begin('~/.vim/bundle')
 
 " Vim Core plugins
+Plug 'tpope/vim-sensible'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'qpkorr/vim-bufkill'
 Plug 'tpope/vim-repeat'

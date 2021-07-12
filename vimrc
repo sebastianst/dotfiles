@@ -5,12 +5,7 @@ let maplocalleader = "\<Space>"
 " Changes of default mappings
 map Y y$
 
-set backspace=2   " Backspace deletes like most programs in insert mode
-set history=50
-set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
-set incsearch     " do incremental searching
-set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set scrolloff=4   " Show context lines when cursor goes to top/bottom of screen
 set linebreak     " Do not break words but only at breakat chars
@@ -26,12 +21,6 @@ set numberwidth=4
 " gvim specifics
 set guioptions-=m " remove menu
 set guioptions-=T " remove toolbar
-
-filetype plugin indent on
-" Switch syntax highlighting on, when the terminal has colors
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
-endif
 
 " Plugins
 if filereadable(expand("~/.vimrc.bundles"))
@@ -359,9 +348,6 @@ let NERDTreeDirArrows = 1
 let g:magit_default_fold_level=2 " Unfold all
 let g:magit_show_magit_mapping=''
 nmap <leader>M :MagitOnly<CR>
-
-" macros
-runtime macros/matchit.vim
 
 " vim project rcs
 set exrc
