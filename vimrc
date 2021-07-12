@@ -93,8 +93,6 @@ if executable('rg')
     \   <bang>0)
 endif
 
-source ~/.vim/plugconfigs/denite.vim
-
 " Color scheme
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
