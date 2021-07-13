@@ -75,9 +75,9 @@ if !exists("autocommands_loaded")
   " Don't do it for commit messages, when the position is invalid, or when
   " inside an event handler (happens when dropping a file on gvim).
   autocmd BufReadPost *
-    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+        \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal g`\"" |
+        \ endif
 
   " Set syntax highlighting for specific file types
   autocmd BufRead,BufNewFile Appraisals set filetype=ruby
@@ -215,10 +215,10 @@ let g:go_highlight_fields = 0
 let g:go_highlight_operators = 1
 let g:go_rename_command = 'gopls'
 autocmd FileType go let b:go_fmt_options = {
-  \ 'gofmt': '-s',
-  \ 'goimports': '-local ' .
-    \ trim(system('{cd '. shellescape(expand('%:h')) .' && go list -m;}')),
-  \ }
+      \ 'gofmt': '-s',
+      \ 'goimports': '-local ' .
+      \ trim(system('{cd '. shellescape(expand('%:h')) .' && go list -m;}')),
+      \ }
 let g:go_imports_autosave = 1
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
