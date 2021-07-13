@@ -75,19 +75,6 @@ Plug 'mattn/emmet-vim' " html
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'ron89/thesaurus_query.vim'
 
-" autocompletion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-if !has('nvim')
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'make release',
-    \ }
-Plug 'deoplete-plugins/deoplete-jedi'
-Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer --system-libclang --system-boost' }
-
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
 endif

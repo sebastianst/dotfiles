@@ -255,52 +255,10 @@ if has('nvim')
   let g:vimtex_compiler_progname = 'nvr'
 endif
 
-" YCM YouCompleteMe
-nnoremap <leader>yf :YcmCompleter FixIt<CR>
-nnoremap <leader>yc :YcmCompleter GetDoc<CR>
-nnoremap <leader>yg :YcmCompleter GoTo<CR>
-nnoremap <leader>yi :YcmCompleter GoToInclude<CR>
-nnoremap <leader>yh :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>yd :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>yt :YcmCompleter GoToType<CR>
-
-" YCM for tex
-if !exists('g:ycm_semantic_triggers')
-  let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
-
-" Use ycm instead of jedi-vim completion
-let g:jedi#completions_enabled = 0
-
-" Enable YCM only for C++ in favor of deoplete
-let g:ycm_filetype_whitelist = {'cpp': 1, 'c': 1}
-autocmd FileType cpp,c
-      \ call deoplete#custom#buffer_option('auto_complete', v:false)
-
-""" deoplete
-let g:deoplete#enable_at_startup = 1
-" go
-"call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
-" latex
-call deoplete#custom#var('omni', 'input_patterns', {
-      \ 'tex': g:vimtex#re#deoplete
-      \})
-" LanguagleClient for language servers
-let g:LanguageClient_serverCommands = {
-      \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-      \ 'go': ['~/go/bin/gopls'],
-      \ 'typescript': ['javascript-typescript-stdio'],
-      \ 'javascript': ['javascript-typescript-stdio'],
-      \ }
-
 " Termdebug
 nnoremap <leader>D :packadd termdebug<CR>:Termdebug<space>
 
-""" TAB KEY
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" supertab
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
