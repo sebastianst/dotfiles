@@ -34,7 +34,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
 Plug 'preservim/nerdcommenter'
-Plug 'cohama/lexima.vim'
+Plug 'windwp/nvim-autopairs'
 Plug 'terryma/vim-expand-region'
 
 " Utilities
@@ -56,6 +56,8 @@ Plug 'vim-syntastic/syntastic'
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
 
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }

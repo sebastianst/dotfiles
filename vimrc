@@ -12,8 +12,10 @@ set linebreak     " Do not break words but only at breakat chars
 set textwidth=80
 set colorcolumn=+1,+21 " show where textwidth and 20 more is
 set nojoinspaces  " Do not put two spaces after ., ? or !
-
 set mouse=a
+
+set completeopt=menuone   " show menu even if there is only one candidate
+set completeopt+=noselect " don't automatically select canditate
 
 " Line Numbers
 set number
@@ -31,6 +33,32 @@ endif
 for f in glob('~/.vim/plugconfigs/*.vim', 0, 1)
   execute 'source' f
 endfor
+
+lua << EOF
+require('plugcfg.lsp')
+require('nvim-autopairs').setup()
+require('nvim-autopairs.completion.compe').setup({
+  map_cr = true, --  map <CR> on insert mode
+  map_complete = true -- it will auto insert `(` after select function or method item
+})
+require('compe').setup({
+  source = {
+    path = true;
+    buffer = true;
+    calc = true;
+    nvim_lsp = true;
+    nvim_lua = true;
+    ultisnips = true;
+  };
+})
+EOF
+
+" nvim-compe
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+" Note: <CR> is mapped by nvim-autopairs to use compe
 
 " Softtabs, 2 spaces
 set tabstop=2
