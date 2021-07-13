@@ -335,7 +335,7 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
 " Emmet
-let g:user_emmet_leader_key=','
+let g:user_emmet_leader_key='<C-,>'
 
 " vim project rcs
 set exrc
