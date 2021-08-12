@@ -13,6 +13,8 @@ set textwidth=80
 set colorcolumn=+1,+21 " show where textwidth and 20 more is
 set nojoinspaces  " Do not put two spaces after ., ? or !
 set mouse=a
+set ignorecase
+set smartcase
 
 set completeopt=menuone   " show menu even if there is only one candidate
 set completeopt+=noselect " don't automatically select canditate
