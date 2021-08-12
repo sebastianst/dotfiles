@@ -31,7 +31,7 @@ font pango:monospace 10
 floating_modifier $mod
 
 # Define default terminal
-set $app_terminal termite
+set $app_terminal alacritty
 # start a terminal
 bindsym $mod+Return exec $app_terminal
 
