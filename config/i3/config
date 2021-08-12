@@ -280,7 +280,8 @@ bindsym $mod+c mode $config_mode
 
 bar {
     #font pango:DejaVu Sans Mono, FontAwesome 10
-    font pango:DejaVu Sans Mono for Powerline 10
+    #font pango:DejaVu Sans Mono for Powerline 10
+    font pango:DejaVu Sans Mono 10
     #font pango:Inconsolata-g for Powerline 10
     status_command i3status-rs ~/.config/i3/status.toml
     position top
