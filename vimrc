@@ -189,6 +189,11 @@ nnoremap <C-l> <C-w>l
 noremap <silent> <A-h> :tabp<CR>
 noremap <silent> <A-l> :tabn<CR>
 
+" Prettier
+let g:prettier#autoformat_config_present = 1
+let g:prettier#autoformat_require_pragma = 0
+let g:prettier#exec_cmd_async = 1
+
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
 let g:syntastic_always_populate_loc_list = 1
