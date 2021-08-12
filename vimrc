@@ -274,8 +274,13 @@ nmap <C-=> <plug>(YoinkPostPasteToggleFormat)
 
 " concealing configuration
 set concealcursor=c
-"set conceallevel=2
+set conceallevel=2
+" vimtex concealing
 let g:tex_conceal = ""
+" indentLine concealing
+let g:indentLine_concealcursor = 'c'
+let g:indentLine_conceallevel = 2
+let g:vim_json_syntax_conceal = 0
 
 " vimtex configuration
 let g:vimtex_view_method = 'zathura'
