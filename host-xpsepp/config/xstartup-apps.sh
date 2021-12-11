@@ -3,7 +3,8 @@
 clipster -d &
 nm-applet &
 redshift-gtk &
-thunderbird &
-pidgin &
+#xidlehook --not-when-audio --not-when-fullscreen --timer 120 "i3lock -c 003366" "" &
+#thunderbird &
+#rambox &
 spotify &
-protonmail-bridge & # Protonmail
+#protonmail-bridge & # Protonmail
