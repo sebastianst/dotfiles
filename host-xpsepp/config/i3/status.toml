@@ -13,12 +13,8 @@ music = ""
 [[block]]
 block = "net"
 device = "wlp2s0"
-ssid = true
-ip = false
-speed_up = false
-graph_up = false
-speed_down = true
-graph_down = false
+format = "{ssid} {signal_strength} {speed_down;K*B}"
+hide_inactive = true
 interval = 5
 
 [[block]]
@@ -31,8 +27,8 @@ interval = 20
 
 [[block]]
 block = "memory"
-format_mem = "{MAg}GB({MApi}%)"
-format_swap = "{SUg}GB({SUp}%)"
+format_mem = "{mem_avail;G}({mem_avail_percents:1})"
+format_swap = "{swap_used;G}({swap_used_percents:1})"
 display_type = "memory"
 icons = true
 clickable = true
@@ -47,22 +43,17 @@ block = "cpu"
 info = 15
 warning = 50
 interval = 1
-frequency = true
+format = "{utilization} {frequency}"
 
 [[block]]
 block = "load"
-format = "{1m} {5m} {15m}"
+format = "{1m} {5m}"
 interval = 3
 
 [[block]]
 block = "temperature"
 interval = 10
-format = "{min}° {max}° {average}°"
-
-[[block]]
-block = "weather"
-format = "{weather} {temp}° {wind} m/s {direction}"
-service = { name = "openweathermap", api_key = "2f85ace6a523d52aecb1d86a9f9b2b0e", city_id = "2938913", units = "metric" }
+format = "{min} {max} {average}"
 
 [[block]]
 block = "time"
@@ -88,4 +79,4 @@ interval = 3600
 [[block]]
 block = "battery"
 interval = 10
-format = "{percentage}% {time}"
+format = "{percentage} {time}"
