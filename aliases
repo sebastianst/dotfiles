@@ -54,8 +54,18 @@ alias i3c='vim ~/.config/i3/config'
 alias e.='(cd ~/.dotfiles; vim $(git ls-tree -r master --name-only | fzf))'
 
 # git aliases - extension to zim's
-alias gcom='git checkout master'
+alias gcom='git checkout main'
 alias gcod='git checkout dev'
+gcoM() {
+  cb=$(git-branch-current)
+  echo "Current branch: ${cb}"
+  git show-ref --verify --quiet refs/heads/master && mb=master
+  git show-ref --verify --quiet refs/heads/main && mb=main
+  [[ -z $mb ]] && echo "No main/master branch. Is this a git repository?" && return
+  echo "Main branch: ${mb}"
+  [[ $cb == $mb ]] && echo "$mb already checked out" && return
+  git fetch && git fetch origin $mb:$mb && git checkout $mb && git branch -d $cb
+}
 
 # Arch aliases
 alias makesrcinfo='rm .SRCINFO; makepkg --printsrcinfo > .SRCINFO'
