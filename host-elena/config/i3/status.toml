@@ -56,7 +56,7 @@ format = "{min}/{max}/{average}"
 
 [[block]]
 block = "weather"
-format = "{temp}{wind_kmh}km/h {direction}"
+format = "{temp} {wind_kmh}km/h {direction}"
 service = { name = "openweathermap", api_key = "2f85ace6a523d52aecb1d86a9f9b2b0e", city_id = "2938913", units = "metric" }
 autolocate = false
 
