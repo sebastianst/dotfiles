@@ -45,6 +45,8 @@ alias chgrp='chgrp --preserve-root'
 
 alias xselc='xsel --clipboard'
 alias listify='xselc | xargs | tr " " , | tr -d "\n" | xselc'
+# rsync preserving only modification time (no perms, user, group or links)
+alias rsync.backup='rsync -rt --info=progress2'
 alias rsync.progress='rsync -a --info=progress2'
 alias rsync.skip-by-size='rsync -a --info=progress2 --size-only'
 alias spotify-open='qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.OpenUri'
