@@ -1,36 +1,5 @@
 # additional go snippets to those provided by vim-go
 
-# errors.Wrap err test
-snippet errw "if err != nil { errors.Wrap(err, ...) }" !b
-if err != nil {
-	return errors.Wrap(err, "${1:context}")
-}
-${0}
-endsnippet
-
-# errors.Wrap multiple return
-snippet errnw "if err != nil { nil, errors.Wrap(err, ...) }" !b
-if err != nil {
-	return ${1:nil}, errors.Wrap(err, "${1:context}")
-}
-${0}
-endsnippet
-
-# inline errors.Wrap err test
-snippet ifew "if err := ...; err != nil { errors.Wrap(err, ...) }" !b
-if err := ${1:expr}; err != nil {
-	return errors.Wrap(err, "${2:context}")
-}
-${0}
-endsnippet
-
-# inline errors.Wrap multiple return
-snippet errnw "if var, err := ...; != nil { nil, errors.Wrap(err, ...) }" !b
-if ${1:var}, err := ${2:expr}; err != nil {
-	return ${3:nil}, errors.Wrap(err, "${4:context}")
-} ${0}
-endsnippet
-
 global !p
 def newline_to_quoted_list(l):
 	return ", ".join(map('"{0}"'.format, l.split()))
