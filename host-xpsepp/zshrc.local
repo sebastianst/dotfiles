@@ -1,2 +1,4 @@
 export DEFAULT_USER=sebas
 export LIBVA_DRIVER_NAME=iHD
+# Fixes alacritty font size scaling, screen reports 1.75
+export WINIT_X11_SCALE_FACTOR=1
