@@ -7,4 +7,5 @@ unclutter -b # remember to install unclutter-xfixes-git from AUR!
 udiskie -As &
 # https://bbs.archlinux.org/viewtopic.php?id=224787
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+feh --bg-scale ~/Pictures/Wallpapers/WEBB_Carina Nebula_nircam.jpg
 exec i3
