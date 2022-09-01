@@ -20,7 +20,6 @@ export XDG_DATA_HOME="${_home_prefix}/.local/share"
 export XAUTHORITY="${_home_prefix}/.Xauthority"
 export GOPATH="${_home_prefix}/go"
 export GNUPGHOME="${_home_prefix}/.gnupg"
-export npm_config_prefix="${_home_prefix}/.node_modules"
 
 PATH="$PATH:$GOPATH/bin:$npm_config_prefix/bin:$HOME/bin"
 
