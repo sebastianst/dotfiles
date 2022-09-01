@@ -25,3 +25,7 @@ PATH="$PATH:$GOPATH/bin:$HOME/bin:$HOME/.cargo/bin"
 
 # from https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2#.tj0bz9a4o
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
+# pass
+export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/password-store"
+export PASSWORD_STORE_ENABLE_EXTENSIONS=true
