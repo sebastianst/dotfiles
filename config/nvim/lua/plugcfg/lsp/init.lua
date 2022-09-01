@@ -35,7 +35,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
-local servers = { 'gopls', 'tsserver', 'rust_analyzer' }
+local servers = { 'gopls', 'tsserver', 'rust_analyzer', 'solc' }
 local defaultFlags = {
   debounce_text_changes = 150,
 }
@@ -45,10 +45,3 @@ for _, server in ipairs(servers) do
     flags = defaultFlags,
   }
 end
-
--- servers with custom configuration
-lspconfig['solc'].setup {
-    on_attach = on_attach,
-    flags = defaultFlags,
-    root_dir = lspconfig.util.root_pattern('hardhat.config.*', '.git'),
-}
