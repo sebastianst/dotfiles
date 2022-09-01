@@ -40,7 +40,6 @@ Plug 'terryma/vim-expand-region'
 
 " Utilities
 Plug 'preservim/nerdtree'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'preservim/tagbar'
 
 " Git
