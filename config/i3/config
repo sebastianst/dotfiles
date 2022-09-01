@@ -258,7 +258,7 @@ mode $launcher_mode {
 bindsym $mod+space mode $launcher_mode
 
 # Configuration mode
-set $bgcmd "sh ~/bin/randombg"
+set $bgcmd "feh --bg-scale ~/Pictures/Wallpapers/WEBB_Carina_Nebula_nircam.jpg"
 set $config_mode "Screen layouts: (1) primary (2) secondary (3) 1+2 (4) 2+1 (5) 2+3 (6) 3+2; Toggle (b)luetooth; Keyboard: (U)HK (n)ormal"
 mode $config_mode {
     bindsym 1 $exec1 ~/bin/screen-config 0, exec $bgcmd, mode "default"
@@ -293,6 +293,7 @@ bar {
 # Startup - only i3 specific system applications
 $exec1 pasystray
 $exec1 dunst
-$exec1 $bgcmd
+exec_always --no-startup-id $bgcmd
+exec_always --no-startup-id xkb-switch --i3
 # Startup - common applications
 $exec1 ~/.config/xstartup-apps.sh
