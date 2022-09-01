@@ -27,7 +27,6 @@ alias vpnchromium="sudo vpnns run sudo -u $USER /usr/bin/chromium"
 if [ $UID -ne 0 ]; then
     alias sudo='sudo '
     alias scat='sudo cat'
-    alias svim='sudo vim'
     alias root='sudo su'
     alias reboot='sudo reboot'
     alias halt='sudo halt'
@@ -51,9 +50,9 @@ alias rsync.progress='rsync -a --info=progress2'
 alias rsync.skip-by-size='rsync -a --info=progress2 --size-only'
 alias spotify-open='qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.OpenUri'
 # quickly edit config files
-alias vimrc='vim ~/.vimrc'
-alias i3c='vim ~/.config/i3/config'
-alias e.='(cd ~/.dotfiles; vim $(git ls-tree -r master --name-only | fzf))'
+alias vimrc="${VISUAL} ~/.vimrc"
+alias i3c="${VISUAL} ~/.config/i3/config"
+alias e.="(cd ~/.dotfiles; ${VISUAL} \$(git ls-tree -r master --name-only | fzf))"
 
 # git aliases - extension to zim's
 alias gcom='git checkout main'
