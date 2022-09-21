@@ -1,19 +1,9 @@
-URxvt.scrollBar: off
-! do not scroll with output
-URxvt*scrollTtyOutput: false
-
-! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
-URxvt*scrollWithBuffer: true
-
-! scroll back to the bottom on keypress
-URxvt*scrollTtyKeypress: true
-
-! scroll inside secondary screen (less, man, ...)
-URxvt.secondaryScreen: 1
-URxvt.secondaryScroll: 0
-
-! make it pretty
-*font: xft:Inconsolata-g-Powerline:pixelsize=12:antialias=true:hinting=true
-!*letterSpace: -1
-
 #include ".config/Xresources/Solarized.light"
+#include ".config/Xresources/dpi"
+
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
