@@ -1,0 +1,43 @@
+global !p
+def natspecArray(typ, args):
+	return (f' * @{typ} ' + p.split(" ")[-1] for p in args.split(","))
+
+endglobal
+
+snippet con "contract with natspec" b
+/**
+ * @title $1 ${2}
+ * @author ${3}
+ * @notice ${4}
+ * @dev ${5}
+ */
+contract ${1:Contract}
+endsnippet
+
+snippet ev "event with natspec" b
+/**
+ * @notice $1 $0
+ * @dev`!p
+for x in natspecArray("param", t[2]): snip += x`
+ */
+event ${1:Event}(${2});
+endsnippet
+
+snippet fn "function with natspec" b
+/**
+ * @notice $1 ${4}
+ * @dev ${5}`!p
+for x in natspecArray("param", t[2]): snip += x`
+ */
+function ${1:func}(${2}) ${3}$0
+endsnippet
+
+snippet fnr "function (with return) with natspec" b
+/**
+ * @notice $1 ${5}
+ * @dev ${6}`!p
+for x in natspecArray("param", t[2]): snip += x
+for x in natspecArray("return", t[4]): snip += x`
+ */
+function ${1:func}(${2}) ${3} returns (${4})$0
+endsnippet
