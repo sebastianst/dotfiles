@@ -1,43 +1,64 @@
 global !p
-def natspecArray(typ, args):
-	return (f' * @{typ} ' + p.split(" ")[-1] for p in args.split(","))
+FIELDS = {
+	't': "title",
+	'a': "author",
+	'n': "notice",
+	'd': "dev",
+	'p': "param",
+	'r': "return"
+}
+
+def expand_natspec(snip, nd, ad = None):
+	body = "/**\n"
+	i = 0
+	for i, x in enumerate(nd):
+		body += (" * @" + FIELDS[x] + f" ${i+1}\n")
+	if ad:
+		for a in ad:
+			typ, args = FIELDS[a[0]], snip.tabstops[a[1]].current_text
+			for line in natspec_lines(typ, args):
+				i += 1
+				body += (line + f" ${i+1}\n")
+	body += " */$0"
+	snip.expand_anon(body)
+
+def natspec_lines(typ, args):
+	return (f" * @{typ} " + p.split(" ")[-1] for p in args.split(","))
 
 endglobal
 
+post_jump "if snip.tabstop == 0: expand_natspec( snip, 'tand' )"
 snippet con "contract with natspec" b
-/**
- * @title $1 ${2}
- * @author ${3}
- * @notice ${4}
- * @dev ${5}
- */
-contract ${1:Contract}
+$0
+contract ${1:Contract} {
+}
 endsnippet
 
+post_jump "if snip.tabstop == 0: expand_natspec( snip, 'tand' )"
+snippet intf "interface with natspec" b
+$0
+interface ${1:IContract} {
+}
+endsnippet
+
+post_jump "if snip.tabstop == 0: expand_natspec( snip, 'nd', [('p', 2)] )"
 snippet ev "event with natspec" b
-/**
- * @notice $1 $0
- * @dev`!p
-for x in natspecArray("param", t[2]): snip += x`
- */
+$0
 event ${1:Event}(${2});
 endsnippet
 
+post_jump "if snip.tabstop == 0: expand_natspec( snip, 'nd', [('p', 2)] )"
 snippet fn "function with natspec" b
-/**
- * @notice $1 ${4}
- * @dev ${5}`!p
-for x in natspecArray("param", t[2]): snip += x`
- */
-function ${1:func}(${2}) ${3}$0
+$0
+function ${1:func}(${2}) ${3}
 endsnippet
 
+post_jump "if snip.tabstop == 0: expand_natspec( snip, 'nd', [('p', 2), ('r', 4)] )"
 snippet fnr "function (with return) with natspec" b
-/**
- * @notice $1 ${5}
- * @dev ${6}`!p
-for x in natspecArray("param", t[2]): snip += x
-for x in natspecArray("return", t[4]): snip += x`
- */
-function ${1:func}(${2}) ${3} returns (${4})$0
+$0
+function ${1:func}(${2}) ${3} returns (${4})
+endsnippet
+
+post_jump "expand_natspec(snip, match.group(1))"
+snippet "/([ndpr]+)" "natspec with dynamic @notice, @dev, @param, and @return" br
 endsnippet
