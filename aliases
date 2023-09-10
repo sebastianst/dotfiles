@@ -64,16 +64,20 @@ __exists git-branchless && alias git='git-branchless wrap --'
 # git aliases - extension to zim's
 alias gcom='git checkout main'
 alias gcod='git checkout dev'
-gcoM() {
+__git_sync_delete() {
   cb=$(git-branch-current)
   echo "Current branch: ${cb}"
-  git show-ref --verify --quiet refs/heads/master && mb=master
-  git show-ref --verify --quiet refs/heads/main && mb=main
-  [[ -z $mb ]] && echo "No main/master branch. Is this a git repository?" && return
+  tbs=("$@")
+  for tb in "${tbs[@]}"; do
+    git show-ref --verify --quiet refs/heads/$tb && mb=$tb
+  done
+  [[ -z $mb ]] && echo "No ${@} branch found." && return
   echo "Main branch: ${mb}"
   [[ $cb == $mb ]] && echo "$mb already checked out" && return
   git fetch && git fetch origin $mb:$mb && git checkout $mb && git branch -d $cb
 }
+alias gcoM="__git_sync_delete master main"
+alias gcoD="__git_sync_delete develop"
 
 # Arch aliases
 alias makesrcinfo='rm .SRCINFO; makepkg --printsrcinfo > .SRCINFO'
