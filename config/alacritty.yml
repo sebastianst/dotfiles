@@ -3,19 +3,19 @@ key_bindings:
 
 font:
   normal:
-    family: Fira Code
+    family: monospace
     style: Regular
 
   bold:
-    family: Fira Code
+    family: monospace
     style: Bold
 
   italic:
-    family: Fira Code
+    family: monospace
     style: Italic
 
   bold_italic:
-    family: Fira Code
+    family: monospace
     style: Bold Italic
 
   size: 12
