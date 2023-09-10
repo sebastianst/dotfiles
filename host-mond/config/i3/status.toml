@@ -1,38 +1,35 @@
+icons_format = "{icon}"
+
+[theme]
 theme = "solarized-dark"
-icons_format = "{icon} "
 [icons]
-name = "awesome6"
+icons = "awesome6"
 [icons.overrides]
 music = ""
 
 [[block]]
 block = "music"
 player = "spotify"
-max_width = 36
-buttons = ["play", "next"]
+format = " $icon {$combo.str(max_w:36) $play $next |}"
+#max_width = 36
+#buttons = ["play", "next"]
 
 [[block]]
 block = "net"
 device = "wlp2s0"
-format = "{ssid} {signal_strength} {speed_down;K}"
-hide_inactive = true
-interval = 5
+format = " $icon $ssid $signal_strength $speed_down.eng(prefix:K)"
+#hide_inactive = true
+#interval = 5
 
 [[block]]
 block = "disk_space"
-path = "/"
-alias = "/"
-info_type = "available"
-unit = "GB"
-interval = 20
 
 [[block]]
 block = "memory"
-format_mem = "{mem_avail;G}({mem_avail_percents:1})"
-format_swap = "{swap_used;G}({swap_used_percents:1})"
-display_type = "memory"
-icons = true
-clickable = true
+#format_mem = "{mem_avail;G}({mem_avail_percents:1})"
+#format_swap = "{swap_used;G}({swap_used_percents:1})"
+format = " $icon $mem_avail.eng(w:3,u:B,p:M) "
+format_alt = " $icon_swap $swap_used.eng(w:3,u:B,p:M) "
 interval = 5
 warning_mem = 80
 warning_swap = 80
@@ -41,37 +38,33 @@ critical_swap = 95
 
 [[block]]
 block = "cpu"
-info = 15
-warning = 50
 interval = 1
-format = "{utilization} {frequency}"
+format = " $icon $utilization $frequency{ $boost|} "
 
 [[block]]
 block = "load"
-format = "{1m} {5m}"
+format = " $icon $1m.eng(w:4) $5m.eng(w:4) "
 interval = 3
 
 [[block]]
 block = "temperature"
-interval = 10
-format = "{min}/{max}/{average}"
+interval = 5
+format = " $icon $min/$max/$average "
 
-[[block]]
-block = "weather"
-format = "{temp} {wind_kmh}km/h {direction}"
-service = { name = "openweathermap", api_key = "2f85ace6a523d52aecb1d86a9f9b2b0e", city_id = "2938913", units = "metric" }
-autolocate = false
+#[[block]]
+#block = "weather"
+#format = "{temp} {wind_kmh}km/h {direction}"
+#service = { name = "openweathermap", api_key = "2f85ace6a523d52aecb1d86a9f9b2b0e", city_id = "2938913", units = "metric" }
+#autolocate = false
 
 [[block]]
 block = "time"
-format = "%a %d/%m %T"
-timezone = "Europe/Berlin"
+#format = "%a %d/%m %T"
 interval = 5
 
 [[block]]
 block = "sound"
 step_width = 3
-on_click = "pavucontrol"
 
 #[[block]]
 #block = "custom"
@@ -81,11 +74,10 @@ on_click = "pavucontrol"
 
 [[block]]
 block = "pacman"
-interval = 3600
+interval = 1200
 
 [[block]]
 block = "battery"
 driver = "upower"
 device = "DisplayDevice"
-interval = 10
-format = "{percentage} {time}"
+format = " $icon $percentage $time $power "
