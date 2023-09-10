@@ -1,3 +1,7 @@
+# Add custom completion scripts to fpath before initializing zim, because it
+# initializes compdef
+FPATH="${HOME}/.zcomp:$FPATH"
+
 # Start configuration added by Zim install {{{
 #
 # User configuration sourced by interactive shells
