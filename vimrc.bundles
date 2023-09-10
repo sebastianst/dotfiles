@@ -69,7 +69,6 @@ Plug 'buoto/gotests-vim'
 
 " Solidity
 Plug 'TovarishFin/vim-solidity'
-Plug 'dmdque/solidity.vim'
 
 " Typescript
 Plug 'leafgarland/typescript-vim' " syntax
