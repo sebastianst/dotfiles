@@ -240,10 +240,10 @@ bindsym $mod+n mode $power_mode
 bindsym $mod+Pause exec "systemctl suspend"
 
 # Launcher mode
-set $launcher_mode "( )firefox (⬆ )chromium (f)ilemanager p(a)vucontrol (l)ibreoffice (p)idgin (c)alculator (t)imer (z)otero"
+set $launcher_mode "( )firefox (⬆ )brave (f)ilemanager p(a)vucontrol (l)ibreoffice (p)idgin (c)alculator (t)imer (z)otero"
 mode $launcher_mode {
     bindsym space exec firefox, mode "default"
-    bindsym Shift+space exec chromium, mode "default"
+    bindsym Shift+space exec brave, mode "default"
     bindsym f exec pcmanfm, mode "default"
     bindsym a exec pavucontrol, mode "default"
     bindsym l exec libreoffice, mode "default"
