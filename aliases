@@ -1,3 +1,7 @@
+__exists() {
+  type "$1" &> /dev/null;
+}
+
 # From https://wiki.archlinux.org/index.php/Bash#Aliases
 # modified commands
 alias diff='colordiff'              # requires colordiff package
@@ -53,6 +57,9 @@ alias spotify-open='qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2
 alias vimrc="${VISUAL} ~/.vimrc"
 alias i3c="${VISUAL} ~/.config/i3/config"
 alias e.="(cd ~/.dotfiles; ${VISUAL} \$(git ls-tree -r master --name-only | fzf))"
+
+# improve git-branchless undo
+__exists git-branchless && alias git='git-branchless wrap --'
 
 # git aliases - extension to zim's
 alias gcom='git checkout main'
