@@ -20,8 +20,12 @@ export XDG_DATA_HOME="${_home_prefix}/.local/share"
 export XAUTHORITY="${_home_prefix}/.Xauthority"
 export GOPATH="${_home_prefix}/go"
 export GNUPGHOME="${_home_prefix}/.gnupg"
+export PNPM_HOME="${_home_prefix}/.local/share/pnpm"
 
-PATH="$PATH:$GOPATH/bin:$HOME/bin:$HOME/.cargo/bin"
+PATH="$PATH:$GOPATH/bin:$PNPM_HOME"
+
+# foundry
+PATH="$PATH:/home/seb/.foundry/bin"
 
 # from https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2#.tj0bz9a4o
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
