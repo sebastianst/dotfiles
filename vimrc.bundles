@@ -15,6 +15,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
 Plug 'Konfekt/FastFold'
 Plug 'lyokha/vim-xkbswitch'
+Plug 'junegunn/fzf'
+Plug 'kevinhwang91/nvim-bqf', { 'for': 'qf' }
 
 " Clipboard
 Plug 'svermeulen/vim-cutlass'
@@ -61,7 +63,7 @@ Plug 'hrsh7th/nvim-compe'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install --frozen-lockfile --production && yarn add prettier-plugin-solidity',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'html', 'solidity'] }
-
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
