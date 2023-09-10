@@ -63,8 +63,7 @@ inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 " Note: <CR> is mapped by nvim-autopairs to use compe
 
 " Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
 set shiftround
 set expandtab
 
