@@ -24,8 +24,10 @@ export PNPM_HOME="${_home_prefix}/.local/share/pnpm"
 
 PATH="$PATH:$GOPATH/bin:$PNPM_HOME"
 
+PATH="$PATH:${_home_prefix}/bin"
+
 # foundry
-PATH="$PATH:/home/seb/.foundry/bin"
+PATH="$PATH:${_home_prefix}/.foundry/bin"
 
 # from https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2#.tj0bz9a4o
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
