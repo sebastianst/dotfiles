@@ -171,4 +171,4 @@ bindkey -M viins '^U' kill-line
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
 # Set up Node Version Manager
-. /usr/share/nvm/init-nvm.sh
+[[ -f /usr/share/nvm/init-nvm.sh ]] && . /usr/share/nvm/init-nvm.sh || true
