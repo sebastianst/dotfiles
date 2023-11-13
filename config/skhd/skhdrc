@@ -1,0 +1,79 @@
+# restart yabai
+alt + shift - r : yabai --restart-service 
+
+# close focused window
+alt - w : yabai -m window --close
+
+# balance windows - 0x18 = equal
+alt - 0x18 : yabai -m space --balance
+
+# better fullscreen by stack/bsp toggle
+alt - f : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end')
+
+# toggle window native fullscreen
+alt + shift - f : yabai -m window --toggle native-fullscreen
+
+# toggle v/h split
+alt - e : yabai -m window --toggle split
+
+# floating windows - 0x2B = period
+alt + shift - 0x2F : yabai -m window --toggle float
+
+# change focus
+alt - h : yabai -m window --focus west || yabai -m display --focus west
+alt - j : yabai -m window --focus stack.next || yabai -m window --focus south || yabai -m window --focus stack.first
+alt - k : yabai -m window --focus stack.prev || yabai -m window --focus north || yabai -m window --focus stack.last
+alt - l : yabai -m window --focus east || yabai -m display --focus east
+
+# move windows
+alt + shift - h : yabai -m window --swap west || yabai -m window --l || (yabai -m window --display west && yabai -m display --focus west)
+alt + shift - j : yabai -m window --swap stack.next || yabai -m window --swap south || (yabai -m window --display south && yabai -m display --focus south)
+alt + shift - k : yabai -m window --swap stack.prev || yabai -m window --swap north || (yabai -m window --display north && yabai -m display --focus north)
+alt + shift - l : yabai -m window --swap east || (yabai -m window --display east && yabai -m display --focus east)
+
+# new window insertions
+alt - b : yabai -m window --insert south 
+alt - v : yabai -m window --insert east 
+
+# stack window movement mode
+:: stack
+alt - s ; stack
+stack < escape ; default
+stack < s : yabai -m window --insert stack; skhd -k escape
+stack < return : yabai -m window --insert stack \
+    && ~/bin/alacritty-new; skhd -k escape
+stack < h : yabai -m window --stack west; skhd -k escape
+stack < j : yabai -m window --stack south; skhd -k escape
+stack < k : yabai -m window --stack north; skhd -k escape
+stack < l : yabai -m window --stack east; skhd -k escape
+stack < shift - h : yabai -m window --insert west && yabai -m window --toggle float && yabai -m window --toggle float; skhd -k escape
+stack < shift - j : yabai -m window --insert south && yabai -m window --toggle float && yabai -m window --toggle float; skhd -k escape
+stack < shift - k : yabai -m window --insert north && yabai -m window --toggle float && yabai -m window --toggle float; skhd -k escape
+stack < shift - l : yabai -m window --insert east && yabai -m window --toggle float && yabai -m window --toggle float; skhd -k escape
+
+# resize window mode
+:: resize
+alt - r ; resize
+resize < escape ; default
+resize < return ; default
+resize < h : yabai -m window --resize right:-96:0 || yabai -m window --resize left:96:0
+resize < l : yabai -m window --resize right:96:0 || yabai -m window --resize left:-96:0
+resize < j : yabai -m window --resize bottom:0:64 || yabai -m window --resize top:0:-64
+resize < k : yabai -m window --resize bottom:0:-64 || yabai -m window --resize top:0:64
+
+# move focused window to workspace
+alt + shift - 1 : yabai -m window --space 1
+alt + shift - 2 : yabai -m window --space 2
+alt + shift - 3 : yabai -m window --space 3
+alt + shift - 4 : yabai -m window --space 4
+alt + shift - 5 : yabai -m window --space 5
+alt + shift - 6 : yabai -m window --space 6
+alt + shift - 7 : yabai -m window --space 7
+alt + shift - 8 : yabai -m window --space 8
+alt + shift - 9 : yabai -m window --space 9
+alt + shift - 0 : yabai -m window --space 10
+
+# new terminals
+alt - return : ~/bin/alacritty-new
+alt + shift - b : yabai -m window --insert south && ~/bin/alacritty-new
+alt + shift - v : yabai -m window --insert east && ~/bin/alacritty-new
