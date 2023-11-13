@@ -1,6 +1,4 @@
-__exists() {
-  type "$1" &> /dev/null;
-}
+. ~/.rclib
 
 # From https://wiki.archlinux.org/index.php/Bash#Aliases
 # modified commands
@@ -38,13 +36,12 @@ if [ $UID -ne 0 ]; then
 fi
 
 # safety features
-#alias cp='cp -i'
-#alias mv='mv -i'
 alias rm='rm -I'                    # 'rm -i' prompts for every file
-#alias ln='ln -i'
-alias chown='chown --preserve-root'
-alias chmod='chmod --preserve-root'
-alias chgrp='chgrp --preserve-root'
+if is-linux; then
+    alias chown='chown --preserve-root'
+    alias chmod='chmod --preserve-root'
+    alias chgrp='chgrp --preserve-root'
+fi
 
 alias xselc='xsel --clipboard'
 alias listify='xselc | xargs | tr " " , | tr -d "\n" | xselc'
@@ -59,7 +56,7 @@ alias i3c="${VISUAL} ~/.config/i3/config"
 alias e.="(cd ~/.dotfiles; ${VISUAL} \$(git ls-tree -r master --name-only | fzf))"
 
 # improve git-branchless undo
-__exists git-branchless && alias git='git-branchless wrap --'
+exists git-branchless && alias git='git-branchless wrap --' || true
 
 # git aliases - extension to zim's
 alias gcom='git checkout main'
