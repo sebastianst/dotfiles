@@ -1,0 +1,23 @@
+[user]
+name = "Sebastian Stammler"
+email = "seb@oplabs.co"
+
+[aliases]
+# general aliases
+l = ["log", "--no-pager"]
+c = ["commit"]
+e = ["edit"]
+sq = ["squash"]
+bc = ["bookmark", "create"]
+
+# git-like aliases
+p = ["git", "push", "--allow-new", "-r", "all:roots(trunk()..@)"]
+f = ["git", "fetch"]
+rbt = ["rebase", "-s", "all:roots(trunk()..@)", "-d", "trunk()", "--skip-emptied"]
+sync = ["util", "exec", "--", "sh", "-c", """
+jj f
+jj rbt
+""", ""]
+
+[revset-aliases]
+"immutable_heads()" = "present(trunk()) | (tags() ~ (tags(dev) | tags(synctest))) | untracked_remote_bookmarks()"
