@@ -11,7 +11,9 @@ sq = ["squash"]
 bc = ["bookmark", "create"]
 
 # git-like aliases
-p = ["git", "push", "--allow-new", "-r", "all:roots(trunk()..@)"]
+pt = ["git", "push", "--tracked"]
+p- = ["git", "push", "--allow-new", "-r", "@-"]
+pb = ["git", "push", "--allow-new", "-r", "trunk()..@-"]
 f = ["git", "fetch"]
 rbt = ["rebase", "-s", "all:roots(trunk()..@)", "-d", "trunk()", "--skip-emptied"]
 sync = ["util", "exec", "--", "sh", "-c", """
