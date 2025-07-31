@@ -4,30 +4,31 @@
 #
 
 # Define Zim location
-: ${ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim}
+export ZIM_HOME="${HOME}/.zim"
+export ZIM_CONFIG_FILE="${HOME}/.zimrc"
 # }}} End configuration added by Zim install
 
 umask 027
 export VISUAL=nvim
 export EDITOR=$VISUAL
+export PAGER="less -r"
 
-# Use local/scratch XDG Paths, if present and flagged with .useme file
-_home_prefix="/scratch${HOME}"
-[ -f ${_home_prefix}/.useme ] || _home_prefix=${HOME} # default to ~
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
-export XDG_CACHE_HOME="${_home_prefix}/.cache"
-export XDG_DATA_HOME="${_home_prefix}/.local/share"
-export XAUTHORITY="${_home_prefix}/.Xauthority"
-export GOPATH="${_home_prefix}/go"
-export GNUPGHOME="${_home_prefix}/.gnupg"
-export PNPM_HOME="${_home_prefix}/.local/share/pnpm"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XAUTHORITY="${HOME}/.Xauthority"
+export GOPATH="${HOME}/go"
+export GNUPGHOME="${HOME}/.gnupg"
+export PNPM_HOME="${HOME}/.local/share/pnpm"
 
 PATH="$PATH:$GOPATH/bin:$PNPM_HOME"
 
-PATH="$PATH:${_home_prefix}/bin"
+PATH="$PATH:${HOME}/bin"
 
 # foundry
-PATH="$PATH:${_home_prefix}/.foundry/bin"
+PATH="$PATH:${HOME}/.foundry/bin"
 
 # from https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2#.tj0bz9a4o
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
@@ -35,3 +36,5 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 # pass
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME}/password-store"
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
+
+[[ -f ~/.zshenv.local ]] && source ~/.zshenv.local

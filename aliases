@@ -60,7 +60,9 @@ exists git-branchless && alias git='git-branchless wrap --' || true
 
 # git aliases - extension to zim's
 alias gcom='git checkout main'
-alias gcod='git checkout dev'
+alias gcod='git checkout develop'
+alias gwtl='git worktree list'
+alias gwta='git worktree add --detach'
 __git_sync_delete() {
   cb=$(git-branch-current)
   echo "Current branch: ${cb}"
@@ -75,6 +77,41 @@ __git_sync_delete() {
 }
 alias gcoM="__git_sync_delete master main"
 alias gcoD="__git_sync_delete develop"
+alias gcoO="__git_sync_delete optimism"
+
+gsync() {
+  echo "Syncing branch ${1} from origin"
+  git fetch origin && git fetch origin ${1}:${1}
+}
+
+# ------------
+# `gh` aliases (original source: https://github.com/clabby/dots/blob/main/.zshrc)
+# ------------
+
+__gh_prselect() {
+  GH_FORCE_TTY=100% gh pr list ${@} | fzf --ansi --preview 'GH_FORCE_TTY=100% gh pr view {1}' --preview-window down --header-lines 3 | cut -d' ' -f1 | tr -d '#'
+}
+
+# Search through all PRs that are open in the current repo and check the selected one out locally.
+alias prc='__gh_prselect -L 1000 | xargs gh pr checkout'
+
+# Search through all PRs that are open in the current repo and open the selected one in browser.
+alias prv='__gh_prselect -L 1000 | xargs gh pr view -w'
+
+# Search through all PRs that are open in the current repo and that I'm requested to review and
+# open the selected one in browser.
+alias prr='__gh_prselect --search user-review-requested:@me | xargs gh pr view -w'
+
+CLI_ISSUES="ethereum-optimism/client-pod"
+# Search through all open client-pod issues and open the selected one in browser.
+alias oi="GH_FORCE_TTY=100% gh issue list -R $CLI_ISSUES -L 1000 | fzf --ansi --preview 'GH_FORCE_TTY=100% gh issue -R $CLI_ISSUES view {1}' --preview-window down --header-lines 3 | cut -d' ' -f1 | tr -d '#' | xargs gh issue -R $CLI_ISSUES view -w"
+# Search through all open client-pod issues assigned to me and open the selected one in browser.
+alias om="GH_FORCE_TTY=100% gh issue list -R $CLI_ISSUES -L 1000 --search 'assignee:@me' | fzf --ansi --preview 'GH_FORCE_TTY=100% gh issue -R $CLI_ISSUES view {1}' --preview-window down --header-lines 3 | cut -d' ' -f1 | tr -d '#' | xargs gh issue -R $CLI_ISSUES view -w"
+
+# force-pull currently checked out PR
+alias prpf='gh pr checkout --force $(gh pr view --json number -q .number)'
+
+exists kubectl && alias k=kubectl || true
 
 # Arch aliases
 alias makesrcinfo='rm .SRCINFO; makepkg --printsrcinfo > .SRCINFO'

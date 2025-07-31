@@ -45,7 +45,8 @@ WORDCHARS=${WORDCHARS//[\/]}
 
 # Set a custom path for the completion dump file.
 # If none is provided, the default ${ZDOTDIR:-${HOME}}/.zcompdump is used.
-#zstyle ':zim:completion' dumpfile "${ZDOTDIR:-${HOME}}/.zcompdump-${ZSH_VERSION}"
+zstyle ':zim:completion' dumpfile "${HOME}/.zcompdump-${ZSH_VERSION}"
+zstyle ':completion::complete:*' cache-path ${XDG_CACHE_HOME}/zsh/zcompcache
 
 #
 # git
@@ -172,3 +173,6 @@ bindkey -M viins '^U' kill-line
 
 # Set up Node Version Manager
 [[ -f /usr/share/nvm/init-nvm.sh ]] && . /usr/share/nvm/init-nvm.sh || true
+
+# Created by `pipx` on 2024-03-12 19:12:10
+export PATH="$PATH:/Users/seb/.local/bin"
