@@ -34,6 +34,12 @@ if is-darwin; then
     zmodule homebrew
 fi
 
+if is-linux; then
+    zmodule pacman
+
+    zmodule ssh
+fi
+
 # Additional completion definitions for Zsh.
 zmodule zsh-users/zsh-completions --fpath src
 # Enables and configures smart and extensive tab completion.
@@ -48,9 +54,3 @@ zmodule zsh-users/zsh-syntax-highlighting
 # zsh-users/zsh-history-substring-search must be sourced after zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-history-substring-search
 # }}} End configuration added by Zim install
-
-if is-linux; then
-    zmodule pacman
-
-    zmodule ssh
-fi
