@@ -1,0 +1,147 @@
+# Reference: https://github.com/i3/i3/blob/next/etc/config
+# With Seb's modifications
+
+# Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# Mouse follows focus when focused monitor changes
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+automatically-unhide-macos-hidden-apps = false
+
+accordion-padding = 5
+
+[workspace-to-monitor-force-assignment]
+    1 = 'main'
+    2 = 'main'
+    3 = 'main'
+    4 = 'main'
+    5 = 'main'
+    6 = 'main'
+    7 = 'main'
+    8 = 'main'
+    9 = 'main'
+    10 = 'main'
+    11 = 'secondary'
+    12 = 'secondary'
+    13 = 'secondary'
+    14 = 'secondary'
+
+[[on-window-detected]]
+    if.app-id = 'com.spotify.client'
+    run = 'layout floating'
+
+[mode.main.binding]
+    # See: https://nikitabobko.github.io/AeroSpace/goodies#open-a-new-window-with-applescript
+    alt-enter = 'exec-and-forget ~/bin/alacritty-new'
+
+    # i3 wraps focus by default
+    alt-h = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors left'
+    alt-j = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors down'
+    alt-k = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors up'
+    alt-l = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors right'
+
+    alt-shift-h = 'move left --boundaries all-monitors-outer-frame'
+    alt-shift-j = 'move down --boundaries all-monitors-outer-frame'
+    alt-shift-k = 'move up --boundaries all-monitors-outer-frame'
+    alt-shift-l = 'move right --boundaries all-monitors-outer-frame'
+
+    alt-f = 'fullscreen'
+    alt-shift-f = 'macos-native-fullscreen'
+
+    alt-t = 'layout v_accordion' # 'layout stacking' in i3
+    alt-w = 'layout h_accordion' # 'layout tabbed' in i3
+    alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
+
+    alt-shift-period = 'layout floating tiling' # 'floating toggle' in i3
+
+    alt-equal = 'balance-sizes'
+
+    # Not supported, because this command is redundant in AeroSpace mental model.
+    # See: https://nikitabobko.github.io/AeroSpace/guide#floating-windows
+    #alt-space = 'focus toggle_tiling_floating'
+
+    # `focus parent`/`focus child` are not yet supported, and it's not clear whether they
+    # should be supported at all https://github.com/nikitabobko/AeroSpace/issues/5
+    # alt-a = 'focus parent'
+
+    alt-1 = 'workspace 1'
+    alt-2 = 'workspace 2'
+    alt-3 = 'workspace 3'
+    alt-4 = 'workspace 4'
+    alt-5 = 'workspace 5'
+    alt-6 = 'workspace 6'
+    alt-7 = 'workspace 7'
+    alt-8 = 'workspace 8'
+    alt-9 = 'workspace 9'
+    alt-0 = 'workspace 10'
+    # second monitor
+    alt-y = 'workspace 11'
+    alt-u = 'workspace 12'
+    alt-i = 'workspace 13'
+    alt-o = 'workspace 14'
+
+    alt-shift-1 = 'move-node-to-workspace 1'
+    alt-shift-2 = 'move-node-to-workspace 2'
+    alt-shift-3 = 'move-node-to-workspace 3'
+    alt-shift-4 = 'move-node-to-workspace 4'
+    alt-shift-5 = 'move-node-to-workspace 5'
+    alt-shift-6 = 'move-node-to-workspace 6'
+    alt-shift-7 = 'move-node-to-workspace 7'
+    alt-shift-8 = 'move-node-to-workspace 8'
+    alt-shift-9 = 'move-node-to-workspace 9'
+    alt-shift-0 = 'move-node-to-workspace 10'
+    # second monitor
+    alt-shift-y = 'move-node-to-workspace 11'
+    alt-shift-u = 'move-node-to-workspace 12'
+    alt-shift-i = 'move-node-to-workspace 13'
+    alt-shift-o = 'move-node-to-workspace 14'
+
+    # monitor focus and movement
+
+    alt-n = 'focus-monitor --wrap-around prev'
+    alt-m = 'focus-monitor --wrap-around next'
+
+    alt-shift-n = 'move-node-to-monitor --wrap-around prev'
+    # alt-shift-m = 'move-node-to-monitor --wrap-around next'
+
+    # modes
+
+    alt-shift-semicolon = 'mode service'
+
+    alt-r = 'mode resize'
+    alt-c = 'mode join-with'
+    alt-s = 'mode stack-with'
+
+    cmd-h = [] # Disable "hide application"
+    cmd-alt-h = [] # Disable "hide others"
+
+[mode.service.binding]
+    c = ['reload-config', 'mode main']
+    r = ['flatten-workspace-tree', 'mode main'] # reset layout
+    backspace = ['close-all-windows-but-current', 'mode main']
+
+    esc = 'mode main'
+
+[mode.resize.binding]
+    h = 'resize width -50'
+    j = 'resize height +50'
+    k = 'resize height -50'
+    l = 'resize width +50'
+    enter = 'mode main'
+    esc = 'mode main'
+
+[mode.join-with.binding]
+    h = ['join-with left', 'mode main']
+    j = ['join-with down', 'mode main']
+    k = ['join-with up', 'mode main']
+    l = ['join-with right', 'mode main']
+    esc = 'mode main'
+
+[mode.stack-with.binding]
+    h = ['join-with left', 'layout v_accordion', 'mode main']
+    j = ['join-with down', 'layout v_accordion', 'mode main']
+    k = ['join-with up', 'layout v_accordion', 'mode main']
+    l = ['join-with right', 'layout v_accordion', 'mode main']
+    esc = 'mode main'
