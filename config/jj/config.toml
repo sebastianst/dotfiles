@@ -15,11 +15,11 @@ pt = ["git", "push", "--tracked"]
 p- = ["git", "push", "--allow-new", "-r", "@-"]
 pb = ["git", "push", "--allow-new", "-r", "trunk()..@-"]
 f = ["git", "fetch"]
-rbt = ["rebase", "-s", "all:roots(trunk()..@)", "-d", "trunk()", "--skip-emptied"]
+rbt = ["rebase", "-s", "roots(trunk()..@)", "-d", "trunk()", "--skip-emptied"]
 sync = ["util", "exec", "--", "sh", "-c", """
 jj f
 jj rbt
 """, ""]
 
 [revset-aliases]
-"immutable_heads()" = "present(trunk()) | (tags() ~ (tags(dev) | tags(synctest))) | untracked_remote_bookmarks()"
+"immutable_heads()" = "present(trunk()) | (tags() ~ (tags(dev) | tags(synctest) | tags(cdfpl))) | untracked_remote_bookmarks()"
