@@ -23,3 +23,12 @@ jj rbt
 
 [revset-aliases]
 "immutable_heads()" = "present(trunk()) | (tags() ~ (tags(dev) | tags(synctest) | tags(cdfpl))) | untracked_remote_bookmarks()"
+
+[ui]
+diff-formatter = "ksdiff"
+merge-editor = "ksdiff"
+
+[merge-tools.ksdiff]
+diff-invocation-mode = "file-by-file"
+diff-args = ["--partial-changeset", "$left", "$right"]
+merge-args = ["--merge", "--output", "$output", "--base", "$base", "$left", "$right"]
