@@ -42,6 +42,10 @@ if is-linux; then
     zmodule ssh
 fi
 
+export NVM_LAZY_LOAD=true
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=('nvim')
+zmodule lukechilds/zsh-nvm
+
 # Additional completion definitions for Zsh.
 zmodule zsh-users/zsh-completions --fpath src
 # Enables and configures smart and extensive tab completion.
