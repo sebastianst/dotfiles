@@ -27,7 +27,6 @@ $erlang\
 $fennel\
 $fortran\
 $gleam\
-$golang\
 $guix_shell\
 $haskell\
 $haxe\
@@ -38,7 +37,6 @@ $kotlin\
 $gradle\
 $lua\
 $nim\
-$nodejs\
 $ocaml\
 $opa\
 $perl\
@@ -66,10 +64,6 @@ $conda\
 $meson\
 $spack\
 $memory_usage\
-$aws\
-$gcloud\
-$openstack\
-$azure\
 $nats\
 $direnv\
 $env_var\
