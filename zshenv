@@ -29,6 +29,8 @@ PATH="$PATH:${HOME}/bin"
 
 # foundry
 PATH="$PATH:${HOME}/.foundry/bin"
+# cargo
+PATH="$PATH:${HOME}/.cargo/bin"
 
 # from https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2#.tj0bz9a4o
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
