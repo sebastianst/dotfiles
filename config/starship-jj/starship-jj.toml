@@ -1,0 +1,71 @@
+module_separator = ""
+
+[[module]]
+# Prints information about bookmarks in the working copy's ancestors.
+type = "Bookmarks"
+separator = ","
+surround_with_quotes = false
+
+[[module]]
+type = "Commit"
+empty_text = "∅"
+
+[[module]]
+# Prints a warning if the working copy contains any conflicts, is divergent, hidden, immutable, or empty.
+type = "State"
+# Text that will be printed between each warning.
+separator = " "
+
+[module.conflict]
+text = "(CONFLICT)"
+color = "Red"
+# bg_color = "Yellow"
+
+[module.divergent]
+text = "(DIVERGENT)"
+color = "Cyan"
+# bg_color = "Yellow"
+
+[module.hidden]
+text = "(HIDDEN)"
+color = "Yellow"
+# bg_color = "Yellow"
+
+[module.immutable]
+disabled = false
+text = "(IMMUTABLE)"
+color = "Yellow"
+
+[module.empty]
+disabled = false
+text = "(EMPTY)"
+color = "Yellow"
+
+[[module]]
+# Prints the amount of changes in the working copy.
+type = "Metrics"
+color = "Magenta"
+# bg_color = "Yellow"
+# Controls how the changes are rendered. Use {added}, {removed} and {changed} to render the number of changes.
+template = "[{changed} {added}{removed}]"
+
+[module.changed_files]
+# Controls how the number of changed files is rendered.
+# suffix = ""
+# prefix = ""
+color = "Cyan"
+# bg_color = "Yellow"
+
+[module.added_lines]
+# Controls how the number of added lines is rendered.
+prefix = "+"
+# suffix = ""
+color = "Green"
+# bg_color = "Yellow"
+
+[module.removed_lines]
+# Controls how the number of removed lines is rendered.
+prefix = "-"
+# suffix = ""
+color = "Red"
+# bg_color = "Yellow"
