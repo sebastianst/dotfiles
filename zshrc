@@ -173,6 +173,3 @@ bindkey -M viins '^U' kill-line
 
 # Set up Node Version Manager
 [[ -f /usr/share/nvm/init-nvm.sh ]] && . /usr/share/nvm/init-nvm.sh || true
-
-# Created by `pipx` on 2024-03-12 19:12:10
-export PATH="$PATH:/Users/seb/.local/bin"
