@@ -26,9 +26,11 @@ zmodule archive
 # Exposes git repository status information to prompts, used by asciiship.
 zmodule git-info
 
-zmodule prompt-pwd
+# zmodule prompt-pwd
+# zmodule eriner
 
-zmodule eriner
+zmodule joke/zim-starship
+
 
 if is-darwin; then
     zmodule homebrew
