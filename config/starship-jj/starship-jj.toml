@@ -5,10 +5,13 @@ module_separator = ""
 type = "Bookmarks"
 separator = ","
 surround_with_quotes = false
+ignore_empty_commits = "Current"
 
 [[module]]
 type = "Commit"
 empty_text = "∅"
+max_length = 40
+show_previous_if_empty = true
 
 [[module]]
 # Prints a warning if the working copy contains any conflicts, is divergent, hidden, immutable, or empty.
@@ -39,7 +42,7 @@ color = "Yellow"
 [module.empty]
 disabled = false
 text = "(EMPTY)"
-color = "Yellow"
+color = "Green"
 
 [[module]]
 # Prints the amount of changes in the working copy.
@@ -48,6 +51,7 @@ color = "Magenta"
 # bg_color = "Yellow"
 # Controls how the changes are rendered. Use {added}, {removed} and {changed} to render the number of changes.
 template = "[{changed} {added}{removed}]"
+hide_if_empty = true
 
 [module.changed_files]
 # Controls how the number of changed files is rendered.
