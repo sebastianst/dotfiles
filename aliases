@@ -84,6 +84,25 @@ gsync() {
   git fetch origin && git fetch origin ${1}:${1}
 }
 
+# jj aliases
+# Advance the nearest bookmark to @-
+jjba() {
+  local bookmark=$(jj log -r 'heads(ancestors(@-) & bookmarks())' --no-graph -T 'bookmarks' --limit 1 | tr -d '*')
+  if [[ -n "$bookmark" ]]; then
+    jj bookmark set "$bookmark" -r '@-'
+  else
+    echo "No bookmark found in ancestors of @-" >&2
+    return 1
+  fi
+}
+
+# Commit and advance the nearest bookmark
+jjca() {
+  local bookmark=$(jj log -r 'heads(ancestors(@-) & bookmarks())' --no-graph -T 'bookmarks' --limit 1 | tr -d '*')
+  jj commit "$@"
+  [[ -n "$bookmark" ]] && jj bookmark set "$bookmark" -r '@-'
+}
+
 # ------------
 # `gh` aliases (original source: https://github.com/clabby/dots/blob/main/.zshrc)
 # ------------
