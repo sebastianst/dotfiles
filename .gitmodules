@@ -2,3 +2,6 @@
 	path = zim
 	url = https://github.com/Eriner/zim.git
   ignore = dirty
+[submodule "config/alacritty/catppuccin"]
+	path = config/alacritty/catppuccin
+	url = https://github.com/catppuccin/alacritty.git

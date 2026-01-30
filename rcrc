@@ -1,2 +1,2 @@
-SYMLINK_DIRS="bin"
+SYMLINK_DIRS="bin config/alacritty/catppuccin"
 UNDOTTED="bin"
