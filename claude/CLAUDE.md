@@ -2,10 +2,16 @@
 
 ## Version Control
 
-- Use `jj` (Jujutsu) instead of git when possible
-- Fetch with `jj f`, commit with `jj commit`, create bookmarks with `jj bookmark create`
-- Push with `jj p-` (pushes `@-`)
-- Use `jj squash` to amend changes into the previous commit
+- If in a JJ repository (`jj root` succeeds), even if colocated with git, use `jj` instead of git:
+  - `jj status` and `jj diff --git` instead of `git status` and `git diff`
+  - `jj f` to fetch
+  - `jj commit -m "msg"` to commit
+  - `jj bookmark create <name> -r @-` to create bookmarks
+  - `jj p-` to push (pushes `@-`)
+  - `jj squash` to amend changes into the previous commit
+  - When creating PRs with `gh pr create`, specify `--head <bookmark-name>` since jj doesn't use git branches
+- Prefix branch/bookmark names with `seb/`
+- Commit descriptions should have the form `<scope>: <desc>`
 
 ## Code Style
 
