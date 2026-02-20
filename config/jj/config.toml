@@ -8,6 +8,23 @@ auto-track-bookmarks = "seb/*"
 auto-track-bookmarks = "(main|master|develop)"
 [templates]
 git_push_bookmark = '"seb/push-" ++ change_id.short()'
+draft_commit_description = '''
+concat(
+  coalesce(description, default_commit_description, "\n"),
+  "JJ:\n",
+  "JJ: Change ID: " ++ format_short_change_id(change_id),
+  "JJ:\n",
+  surround(
+    "JJ: This commit contains the following changes:\n", "",
+    indent("JJ:     ", diff.summary()),
+  ),
+  "JJ:\n",
+  surround(
+    "JJ: Full diff:\n", "",
+    indent("JJ: ", diff.git()),
+  ),
+)
+'''
 
 
 [aliases]
