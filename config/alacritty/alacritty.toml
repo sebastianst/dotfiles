@@ -1,5 +1,5 @@
 [general]
-import = ["~/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
+import = ["~/.config/alacritty/tokyonight/tokyonight_moon.toml"]
 
 [font]
 size = 13
