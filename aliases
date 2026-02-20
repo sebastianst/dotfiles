@@ -84,7 +84,8 @@ gsync() {
   git fetch origin && git fetch origin ${1}:${1}
 }
 
-# jj aliases
+# `jj` aliases
+
 # Advance the nearest bookmark to @-
 jjba() {
   local bookmark=$(jj log -r 'heads(ancestors(@-) & bookmarks())' --no-graph -T 'bookmarks' --limit 1 | tr -d '*')
@@ -101,6 +102,17 @@ jjca() {
   local bookmark=$(jj log -r 'heads(ancestors(@-) & bookmarks())' --no-graph -T 'bookmarks' --limit 1 | tr -d '*')
   jj commit "$@"
   [[ -n "$bookmark" ]] && jj bookmark set "$bookmark" -r '@-'
+}
+
+# Commit and create new branch based on commit description
+jjcnb() {
+  jj commit "$@"
+  local bookmark=$(
+    (echo "Based on the following commit description, generate a succinct branch name." \
+      "Only print the branch name, nothing else." \
+      && jj log -r @- --no-graph -T description
+    ) | claude -p --model haiku)
+  jj bookmark set "$bookmark" -r '@-' 
 }
 
 # ------------
