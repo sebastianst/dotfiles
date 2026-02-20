@@ -13,7 +13,7 @@ concat(
   coalesce(description, default_commit_description, "\n"),
   "JJ:\n",
   "JJ: Change ID: " ++ format_short_change_id(change_id),
-  "JJ:\n",
+  "\n",
   surround(
     "JJ: This commit contains the following changes:\n", "",
     indent("JJ:     ", diff.summary()),
