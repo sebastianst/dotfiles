@@ -145,6 +145,8 @@ alias prpf='gh pr checkout --force $(gh pr view --json number -q .number)'
 
 exists kubectl && alias k=kubectl || true
 
+alias claudesp='claude --allow-dangerously-skip-permissions'
+
 # Arch aliases
 alias makesrcinfo='rm .SRCINFO; makepkg --printsrcinfo > .SRCINFO'
 
