@@ -1,5 +1,6 @@
 [general]
 import = ["~/.config/alacritty/tokyonight/tokyonight_moon.toml"]
+osc52 = "CopyPaste"
 
 [font]
 size = 13
