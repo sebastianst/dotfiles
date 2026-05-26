@@ -29,7 +29,6 @@ PACMAN_PKGS=(
   zsh
   neovim
   tmux
-  rcm
   ripgrep
   fzf
   bat
@@ -69,6 +68,9 @@ if ! command -v yay >/dev/null; then
 else
   log "yay already installed."
 fi
+
+log "Installing AUR packages..."
+yay -S --needed --noconfirm rcm
 
 read -rp "Set up this as a development account (docker, mise, lazygit, ...)? [y/N] " dev_answer </dev/tty
 if [[ ${dev_answer,,} =~ ^y(es)?$ ]]; then
