@@ -29,6 +29,7 @@ PACMAN_PKGS=(
   zsh
   neovim
   tmux
+  mosh
   ripgrep
   fzf
   bat
@@ -130,9 +131,10 @@ log "Installing neovim plugins..."
 nvim --headless "+Lazy! sync" +qa </dev/null
 
 zsh_bin=$(command -v zsh)
-if [[ ${SHELL:-} != "$zsh_bin" ]]; then
+current_shell=$(getent passwd "$USER" | cut -d: -f7)
+if [[ $current_shell != "$zsh_bin" ]]; then
   log "Changing default shell to zsh..."
-  chsh -s "$zsh_bin"
+  sudo usermod -s "$zsh_bin" "$USER"
 fi
 
 log "Bootstrap complete. Open a new shell to start using the environment."
