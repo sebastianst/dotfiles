@@ -21,9 +21,7 @@ err()  { printf '\033[1;31m!!\033[0m %s\n' "$*" >&2; exit 1; }
 [[ $EUID -ne 0 ]] || err "Do not run as root; sudo is invoked per-step."
 command -v pacman >/dev/null || err "This script currently supports Arch Linux only."
 
-# Reattach stdin to the controlling terminal so prompts (sudo, read, chsh) work
-# even when the script is piped from curl.
-[[ -e /dev/tty ]] && exec </dev/tty
+log "Starting bootstrap..."
 
 PACMAN_PKGS=(
   base-devel
@@ -50,6 +48,18 @@ PACMAN_PKGS=(
 log "Installing pacman packages..."
 sudo pacman -Syu --needed --noconfirm "${PACMAN_PKGS[@]}"
 
+# Recent Arch's ncurses already bundles the alacritty terminfo; fall back to
+# upstream's alacritty.info on older systems.
+if ! infocmp alacritty >/dev/null 2>&1; then
+  log "Installing alacritty terminfo from upstream..."
+  tmp=$(mktemp)
+  curl -fsSL https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info -o "$tmp"
+  sudo tic -xe alacritty,alacritty-direct "$tmp"
+  rm -f "$tmp"
+else
+  log "alacritty terminfo already present."
+fi
+
 if ! command -v yay >/dev/null; then
   log "Installing yay from AUR..."
   tmp=$(mktemp -d)
@@ -60,7 +70,7 @@ else
   log "yay already installed."
 fi
 
-read -rp "Set up this as a development account (docker, mise, lazygit, ...)? [y/N] " dev_answer
+read -rp "Set up this as a development account (docker, mise, lazygit, ...)? [y/N] " dev_answer </dev/tty
 if [[ ${dev_answer,,} =~ ^y(es)?$ ]]; then
   log "Installing development packages..."
   sudo pacman -S --needed --noconfirm lazygit just jq go-yq docker docker-compose
@@ -83,7 +93,7 @@ if [[ ! -f $SSH_KEY ]]; then
   echo "================================================"
   echo "Add this key to GitHub: https://github.com/settings/ssh/new"
   echo
-  read -rp "Press <Enter> once you've added the key..." _
+  read -rp "Press <Enter> once you've added the key..." _ </dev/tty
 else
   log "SSH key already exists at ${SSH_KEY}."
 fi
