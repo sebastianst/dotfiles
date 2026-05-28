@@ -25,6 +25,7 @@ log "Starting bootstrap..."
 
 PACMAN_PKGS=(
   base-devel
+  man
   git
   zsh
   neovim
@@ -38,6 +39,7 @@ PACMAN_PKGS=(
   jujutsu
   starship
   glow
+  colordiff
   htop
   tree
   wget
@@ -76,7 +78,10 @@ yay -S --needed --noconfirm rcm
 read -rp "Set up this as a development account (docker, mise, lazygit, ...)? [y/N] " dev_answer </dev/tty
 if [[ ${dev_answer,,} =~ ^y(es)?$ ]]; then
   log "Installing development packages..."
-  sudo pacman -S --needed --noconfirm lazygit just jq go-yq docker docker-compose
+  sudo pacman -S --needed --noconfirm \
+    lazygit just jq go-yq \
+    docker docker-compose \
+    tree-sitter-cli tree-sitter-grammars
   yay -S --needed --noconfirm tuicr-bin mise-bin
 
   log "Enabling docker service and adding ${USER} to the docker group..."
@@ -89,7 +94,7 @@ if [[ ! -f $SSH_KEY ]]; then
   log "Generating ed25519 SSH key..."
   mkdir -p "${HOME}/.ssh"
   chmod 700 "${HOME}/.ssh"
-  ssh-keygen -t ed25519 -N "" -C "$(whoami)@$(hostname)" -f "$SSH_KEY"
+  ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)" -f "$SSH_KEY"
   echo
   echo "================ SSH public key ================"
   cat "${SSH_KEY}.pub"
