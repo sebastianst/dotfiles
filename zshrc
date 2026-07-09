@@ -173,3 +173,5 @@ bindkey -M viins '^U' kill-line
 
 # Set up Node Version Manager
 [[ -f /usr/share/nvm/init-nvm.sh ]] && . /usr/share/nvm/init-nvm.sh || true
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
