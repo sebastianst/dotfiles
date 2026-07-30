@@ -31,6 +31,8 @@ PATH="$PATH:${HOME}/bin"
 PATH="$PATH:${HOME}/.foundry/bin"
 # cargo
 PATH="$PATH:${HOME}/.cargo/bin"
+# bun
+PATH="$PATH:${HOME}/.cache/.bun/bin"
 # .local
 PATH="$PATH:${HOME}/.local/bin"
 
