@@ -89,7 +89,7 @@ gsync() {
 
 # Advance the nearest bookmark to @-
 jjba() {
-  local bookmark=$(jj log -r 'heads(ancestors(@-) & bookmarks())' --no-graph -T 'bookmarks' --limit 1 | tr -d '*')
+  local bookmark=$(jj log -r 'heads(ancestors(@-) & bookmarks())' --no-graph -T 'bookmarks' --limit 1 | tr -d '*' | cut -d ' ' -f 1)
   if [[ -n "$bookmark" ]]; then
     jj bookmark set "$bookmark" -r '@-'
   else
@@ -100,7 +100,7 @@ jjba() {
 
 # Commit and advance the nearest bookmark
 jjca() {
-  local bookmark=$(jj log -r 'heads(ancestors(@-) & bookmarks())' --no-graph -T 'bookmarks' --limit 1 | tr -d '*')
+  local bookmark=$(jj log -r 'heads(ancestors(@-) & bookmarks())' --no-graph -T 'bookmarks' --limit 1 | tr -d '*' | cut -d ' ' -f 1)
   jj commit "$@"
   [[ -n "$bookmark" ]] && jj bookmark set "$bookmark" -r '@-'
 }
