@@ -17,6 +17,8 @@ The converter skips fenced content entirely — text arrives byte-for-byte and t
 
 Mentions must stay outside: a mention *inside* a fence fails the call with `invalid_blocks` and creates no draft at all. Mentions before and after a fence both resolve to proper chips.
 
+**The fence must be exactly three backticks.** A four-backtick fence is not recognised — the content is converted instead of skipped (emphasis eaten, quotes flattened) and the delimiters leak into the message as literal `~~~`. Consequently **you cannot nest a code block inside the body**, since an inner ``` would close the outer fence. For a command or snippet, use single-backtick inline code, or send it as a separate message.
+
 ````
 <@U09C5ABCDEF> mind reviewing?
 
@@ -49,16 +51,18 @@ The doubled forms are the trap: `**bold**` and `~~strike~~` are standard markdow
 
 Outside the fence there is nothing to gain and one silent failure to lose:
 
-- `[label](url)` **drops the URL** and keeps only the label — the message looks intentional and the destination is gone.
-- A bare URL with content after it emits broken mrkdwn `<…>` that also corrupts the following line.
-- Inline emphasis has its markers consumed with no styling applied.
+- `[label](url)` **drops the URL** and keeps only the label — confirmed in the *sent* message, not just the composer. The message looks intentional and the destination is gone.
+- A bare URL that **ends a line with another line after it** emits broken mrkdwn `<…>` whose closing `>` lands past the newline, breaking the link and corrupting the next line. A URL with same-line trailing text, or one ending the message, is fine.
+- Inline emphasis has its markers consumed with no styling applied — in **both** dialects, so `*bold*` fails here too. The fence is the only way to get emphasis at all.
+
+`-` bullets and `>` quotes also need to be at the **start of a line** in either case; mid-line they stay literal.
 
 Newlines and paragraph breaks are preserved either way.
 
 ## Common mistakes
 
 - **Using `[label](url)` outside a fence** because it is correct for `slack_send_message`. In a draft the destination dies silently and the message still reads fine — nothing signals the loss.
-- **Judging a draft by copying its text out of Slack.** A plaintext copy cannot distinguish rendered from stripped, and the composer renders links differently from the sent message. To settle a formatting question, send it and read it back with `slack_read_channel` — the raw API text shows `<url|label>` for real links.
+- **Trusting the wrong source when checking formatting.** Three views disagree, and each is authoritative for different things. A plaintext *copy* cannot distinguish rendered from stripped, since both yield bare text. The *composer* does not predict the sent result — it shows fenced markdown literally that renders fine once sent. The *API* `text` from `slack_read_channel` is authoritative for mrkdwn-encoded entities (`<url|label>` proves a real link) but is a **lossy fallback** for block-level layout, so blank lines and block spacing can be absent from it while present in the message. Check links via the API, and check styling and layout by looking at the sent message.
 - **Putting a mention inside the fence.** Hard failure, no draft created.
 
 ## Upstream
