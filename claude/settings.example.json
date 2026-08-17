@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(gh pr view *)"
+    ],
+    "deny": [],
+    "defaultMode": "default"
+  },
+  "enabledPlugins": {
+    "claude-md-management@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "worktrunk@worktrunk": true
+  },
+  "extraKnownMarketplaces": {
+    "worktrunk": {
+      "source": {
+        "source": "github",
+        "repo": "max-sixty/worktrunk"
+      }
+    }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.dotfiles/claude/statusline.sh"
+  },
+  "tui": "fullscreen",
+  "theme": "auto"
+}
