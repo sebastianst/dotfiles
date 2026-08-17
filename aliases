@@ -185,3 +185,8 @@ svg2pdf () {
 mount/ () {
   mount $@ | grep '^[a-zA-Z0-9:.]*/' | awk -v on1="$(tput setaf 1)" -v on3="$(tput setaf 2)" -v off="$(tput setaf 0)" '{ print on1 $1, on3 $3, off $5, $6 }' | column -t
 }
+
+# Keep the path byte-identical — a trailing slash hashes to a different entry.
+claude-max () {
+  CLAUDE_CONFIG_DIR="$HOME/.claude-max" command claude "$@"
+}
